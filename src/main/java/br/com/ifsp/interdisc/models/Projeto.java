@@ -7,7 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Projeto {
@@ -18,18 +19,22 @@ public class Projeto {
 	private LocalDateTime dataCriacao;
 	private LocalDateTime data;
 	private double nota;
-	private int idCriador;
-	@OneToMany
-	private List<Usuario> participantes;
-	@OneToMany
+	@OneToOne
+	private Usuario criador;
+	@ManyToOne
+	private Usuario participantes;
+	@ManyToOne
 	private Avaliacao avaliacao;
-	@OneToMany
+	@ManyToOne
 	private Documento documento;
-	public List<Usuario> getParticipantes() {
+	@OneToOne
+	private Forum forum;
+
+	public Usuario getParticipantes() {
 		return participantes;
 	}
 
-	public void setParticipantes(List<Usuario> participantes) {
+	public void setParticipantes(Usuario participantes) {
 		this.participantes = participantes;
 	}
 
@@ -73,12 +78,12 @@ public class Projeto {
 		this.nota = nota;
 	}
 
-	public int getIdCriador() {
-		return idCriador;
+	public Usuario getIdCriador() {
+		return criador;
 	}
 
-	public void setIdCriador(int idCriador) {
-		this.idCriador = idCriador;
+	public void setIdCriador(Usuario criador) {
+		this.criador = criador;
 	}
 
 }

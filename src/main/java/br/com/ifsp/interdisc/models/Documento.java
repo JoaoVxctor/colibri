@@ -2,18 +2,25 @@ package br.com.ifsp.interdisc.models;
 
 import java.time.LocalDateTime;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
+@Entity
 public class Documento {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
+	@OneToOne
 	private Usuario usuario;
 	private String descricao;
 	private LocalDateTime data;
 	private String arquivo;
+	@ManyToOne
+	private Projeto projeto;
 
 	public int getId() {
 		return id;

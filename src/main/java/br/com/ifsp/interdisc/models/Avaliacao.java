@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Avaliacao {
@@ -11,7 +12,18 @@ public class Avaliacao {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int Id;
 	private double nota;
-	private Avaliador avaliador;
+	@ManyToOne
+	private Usuario avaliador;
+	@ManyToOne
+	private Projeto projeto;
+
+	public Projeto getProjeto() {
+		return projeto;
+	}
+
+	public void setProjeto(Projeto projeto) {
+		this.projeto = projeto;
+	}
 
 	public int getId() {
 		return Id;
@@ -29,11 +41,11 @@ public class Avaliacao {
 		this.nota = nota;
 	}
 
-	public Avaliador getAvaliador() {
+	public Usuario getAvaliador() {
 		return avaliador;
 	}
 
-	public void setAvaliador(Avaliador avaliador) {
+	public void setAvaliador(Usuario avaliador) {
 		this.avaliador = avaliador;
 	}
 
