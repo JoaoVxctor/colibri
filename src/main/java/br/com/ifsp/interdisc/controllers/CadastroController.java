@@ -5,16 +5,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping(path = {"/index","/"})
-public class IndexController {
-	
+@RequestMapping("/login")
+public class CadastroController {
 
-	@GetMapping
-	public String index() {
-		return "index";
-	}
-	
-
-	
+    @GetMapping
+    public String login(){
+        return "login";
+    }
 
 }

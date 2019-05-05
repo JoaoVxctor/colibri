@@ -1,19 +1,17 @@
 package br.com.ifsp.interdisc.models;
 
+import net.bytebuddy.dynamic.loading.InjectionClassLoader;
+
 import java.util.Date;
 
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Usuario {
 
 	@Id
-	@GeneratedValue
-	private int id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
 	private String nome;
 	private String email;
@@ -23,47 +21,16 @@ public class Usuario {
 	private Genero genero;
 	@Enumerated(EnumType.STRING)
 	private Role role;
-	private int idFaculdade;
-	private int idCurso;
-	
+	@OneToOne
+	private Faculdade faculdade;
+	@Enumerated(EnumType.STRING)
+	private Curso curso;
 
-	public Date getDatansc() {
-		return datansc;
-	}
-
-	public void setDatansc(Date datansc) {
-		this.datansc = datansc;
-	}
-
-	public Genero getGenero() {
-		return genero;
-	}
-
-	public void setGenero(Genero genero) {
-		this.genero = genero;
-	}
-
-	public int getIdFaculdade() {
-		return idFaculdade;
-	}
-
-	public void setIdFaculdade(int idFaculdade) {
-		this.idFaculdade = idFaculdade;
-	}
-
-	public int getIdCurso() {
-		return idCurso;
-	}
-
-	public void setIdCurso(int idCurso) {
-		this.idCurso = idCurso;
-	}
-
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -91,4 +58,43 @@ public class Usuario {
 		this.senha = senha;
 	}
 
+	public Date getDatansc() {
+		return datansc;
+	}
+
+	public void setDatansc(Date datansc) {
+		this.datansc = datansc;
+	}
+
+	public Genero getGenero() {
+		return genero;
+	}
+
+	public void setGenero(Genero genero) {
+		this.genero = genero;
+	}
+
+	public Role getRole() {
+		return role;
+	}
+
+	public void setRole(Role role) {
+		this.role = role;
+	}
+
+	public Faculdade getFaculdade() {
+		return faculdade;
+	}
+
+	public void setFaculdade(Faculdade faculdade) {
+		this.faculdade = faculdade;
+	}
+
+	public Curso getCurso() {
+		return curso;
+	}
+
+	public void setCurso(Curso curso) {
+		this.curso = curso;
+	}
 }

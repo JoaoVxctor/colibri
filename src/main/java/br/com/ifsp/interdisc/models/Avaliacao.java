@@ -9,8 +9,8 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Avaliacao {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int Id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long Id;
 	private double nota;
 	@ManyToOne
 	private Usuario avaliador;
@@ -25,11 +25,11 @@ public class Avaliacao {
 		this.projeto = projeto;
 	}
 
-	public int getId() {
+	public Long getId() {
 		return Id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		Id = id;
 	}
 

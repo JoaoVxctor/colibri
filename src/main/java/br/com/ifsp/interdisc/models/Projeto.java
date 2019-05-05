@@ -3,46 +3,35 @@ package br.com.ifsp.interdisc.models;
 import java.time.LocalDateTime;
 import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 
 @Entity
 public class Projeto {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 	private String nome;
 	private LocalDateTime dataCriacao;
 	private LocalDateTime data;
 	private double nota;
 	@OneToOne
 	private Usuario criador;
-	@ManyToOne
-	private Usuario participantes;
-	@ManyToOne
-	private Avaliacao avaliacao;
-	@ManyToOne
-	private Documento documento;
+	@ManyToMany
+	private List<Usuario> participantes;
+	@ManyToMany
+	private List<Avaliacao> avaliacao;
+	@ManyToMany
+	private List<Documento> documento;
 	@OneToOne
 	private Forum forum;
+	@ManyToMany
+	private List<Sprint> sprint;
 
-	public Usuario getParticipantes() {
-		return participantes;
-	}
-
-	public void setParticipantes(Usuario participantes) {
-		this.participantes = participantes;
-	}
-
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -78,12 +67,51 @@ public class Projeto {
 		this.nota = nota;
 	}
 
-	public Usuario getIdCriador() {
+	public Usuario getCriador() {
 		return criador;
 	}
 
-	public void setIdCriador(Usuario criador) {
+	public void setCriador(Usuario criador) {
 		this.criador = criador;
 	}
 
+	public List<Usuario> getParticipantes() {
+		return participantes;
+	}
+
+	public void setParticipantes(List<Usuario> participantes) {
+		this.participantes = participantes;
+	}
+
+	public List<Avaliacao> getAvaliacao() {
+		return avaliacao;
+	}
+
+	public void setAvaliacao(List<Avaliacao> avaliacao) {
+		this.avaliacao = avaliacao;
+	}
+
+	public List<Documento> getDocumento() {
+		return documento;
+	}
+
+	public void setDocumento(List<Documento> documento) {
+		this.documento = documento;
+	}
+
+	public Forum getForum() {
+		return forum;
+	}
+
+	public void setForum(Forum forum) {
+		this.forum = forum;
+	}
+
+	public List<Sprint> getSprint() {
+		return sprint;
+	}
+
+	public void setSprint(List<Sprint> sprint) {
+		this.sprint = sprint;
+	}
 }

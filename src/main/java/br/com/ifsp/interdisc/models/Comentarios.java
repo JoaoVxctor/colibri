@@ -11,16 +11,16 @@ import javax.persistence.OneToOne;
 @Entity
 public class Comentarios {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 	@OneToOne
 	private Usuario usuario;
 	private String comentario;
 	private LocalDateTime data;
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
