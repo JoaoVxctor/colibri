@@ -1,10 +1,15 @@
 package br.com.ifsp.interdisc.models;
 
-import net.bytebuddy.dynamic.loading.InjectionClassLoader;
-
 import java.util.Date;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Usuario {
@@ -12,10 +17,13 @@ public class Usuario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-
+	@NotNull(message = "O campo nome não pode ser nulo")
 	private String nome;
+	@NotNull(message = "O campo e-mail não pode ser nulo")
 	private String email;
+	@NotNull(message = "O campo senha não pode ser nulo")
 	private String senha;
+	@NotNull(message = "O campo data de nascimento não pode ser nulo") 
 	private Date datansc;
 	@Enumerated(EnumType.STRING)
 	private Genero genero;
