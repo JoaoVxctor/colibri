@@ -1,4 +1,4 @@
-package br.com.ifsp.interdisc.models;
+package br.com.colibri.models;
 
 
 import java.util.List;

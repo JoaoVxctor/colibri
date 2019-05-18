@@ -1,11 +1,9 @@
-package br.com.ifsp.interdisc.repositories;
+package br.com.colibri.repositories;
 
+import br.com.colibri.models.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
-
-import br.com.ifsp.interdisc.models.Usuario;
 
 @Repository
 @Component

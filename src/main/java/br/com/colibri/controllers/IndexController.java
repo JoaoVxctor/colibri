@@ -1,4 +1,4 @@
-package br.com.ifsp.interdisc.controllers;
+package br.com.colibri.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
