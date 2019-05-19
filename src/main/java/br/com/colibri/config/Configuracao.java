@@ -10,8 +10,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-@SpringBootApplication(scanBasePackages = { "br.com.colibri.config","br.com.colibri.controllers","br.com.colibri.repositories","br.com.colibri.models"})
-@ComponentScan({"br.com.colibri.config","br.com.colibri.controllers","br.com.colibri.repositories","br.com.colibri.models"})
+@SpringBootApplication(scanBasePackages = { "br.com.colibri.config","br.com.colibri.controllers","br.com.colibri.repositories","br.com.colibri.models","br.com.colibri.services"})
+@ComponentScan({"br.com.colibri.config","br.com.colibri.controllers","br.com.colibri.repositories","br.com.colibri.models","br.com.colibri.services"})
 @Import({SecurityConfigurations.class})
 @EntityScan("br.com.colibri.models")
 @EnableJpaRepositories("br.com.colibri.repositories")

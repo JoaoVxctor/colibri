@@ -3,14 +3,9 @@ package br.com.colibri.models;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
+import java.util.Set;
 
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
@@ -35,8 +30,8 @@ public class Usuario {
     private Date datanasc;
     @Enumerated(EnumType.STRING)
     private Genero genero;
-    @Enumerated(EnumType.STRING)
-    private Role role;
+    @ManyToMany
+    private Set<Role> role;
     @OneToOne
     private Faculdade faculdade;
     @Enumerated(EnumType.STRING)
@@ -90,11 +85,11 @@ public class Usuario {
         this.genero = genero;
     }
 
-    public Role getRole() {
+    public Set<Role> getRole() {
         return role;
     }
 
-    public void setRole(Role role) {
+    public void setRole(Set<Role> role) {
         this.role = role;
     }
 
@@ -114,7 +109,7 @@ public class Usuario {
         this.curso = curso;
     }
 
-    public Usuario(Long id, @NotNull(message = "O campo nome não pode ser nulo") String nome, @NotNull(message = "O campo e-mail não pode ser nulo") @Email String email, @NotNull(message = "O campo senha não pode ser nulo") String senha, @NotNull(message = "O campo data de nascimento não pode ser nulo") Date datanasc, Genero genero, Role role, Faculdade faculdade, Curso curso) {
+    public Usuario(Long id, @NotNull @Size(min = 4, max = 50) String nome, @Size(min = 1, message = "O campo e-mail não pode ser nulo ou vazio") @Email String email, @NotEmpty(message = "O campo senha não pode ser nulo") String senha, @NotNull(message = "O campo data de nascimento não pode ser nulo") Date datanasc, Genero genero, Set<Role> role, Faculdade faculdade, Curso curso) {
         this.id = id;
         this.nome = nome;
         this.email = email;
