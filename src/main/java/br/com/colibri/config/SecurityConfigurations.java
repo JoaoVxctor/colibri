@@ -1,36 +1,76 @@
 package br.com.colibri.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.annotation.Order;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+
+import javax.sql.DataSource;
 
 @Configuration
 @EnableWebSecurity
-@Order(1)
+@ComponentScan
+@EnableWebMvc
 public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
 
-    private UserDetailsService myDetailsService;
+
+    @Autowired
+    DataSource dataSource;
+    @Value("${spring.queries.usuario-query}")
+    private String usuarioQuery;
+    @Value("${spring.queries.role-query}")
+    private String roleQuery;
+    @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
+
+
+
+
+
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.csrf().disable()
-                .authorizeRequests()
-                .anyRequest().permitAll();
+        http.
+                authorizeRequests()
+                .antMatchers("/").permitAll()
+                .antMatchers("/index").permitAll()
+                .antMatchers("/login").permitAll()
+                .antMatchers("/cadastro").permitAll()
+                .antMatchers("/admin/**").hasAuthority("ADMIN").anyRequest()
+                .authenticated().and()
+                .csrf().disable().formLogin()
+                .loginPage("/login").permitAll()
+                .usernameParameter("email")
+                .passwordParameter("password")
+                .and().logout().permitAll();
     }
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication()
                 .withUser("joao.victor").password("admin").roles("ADMIN");
+
+        auth.
+                jdbcAuthentication()
+                .dataSource(dataSource)
+                .usersByUsernameQuery(usuarioQuery)
+                .authoritiesByUsernameQuery(roleQuery)
+                .passwordEncoder(bCryptPasswordEncoder);
+    }
+
+    @Override
+    public void configure(WebSecurity web) throws Exception {
+        web
+                .ignoring()
+                .antMatchers("/resources/**", "/static/**", "/css/**", "/js/**", "/images/**","/","/index");
     }
 
     @Bean

@@ -10,9 +10,9 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>br.com.ifsp</groupId>
-	<artifactId>interdisc</artifactId>
+	<artifactId>colibri</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>interdisc</name>
+	<name>colibri</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
@@ -73,6 +73,14 @@
 			<artifactId>spring-security-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+
+
 	</dependencies>
 
 	<build>

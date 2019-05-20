@@ -24,15 +24,18 @@ public class UsuarioService {
         this.passwordEncoder = passwordEncoder;
     }
     public Usuario findUsuarioByEmail(String email) {
-        return usuarioRepository.findByEmail(email);
+        return usuarioRepository.findUsuarioByEmail(email);
     }
 
     public void saveUsuario(Usuario usuario){
         usuario.setSenha(passwordEncoder.encode(usuario.getSenha()));
-        Role userRole = roleRepository.findByRole("ADMIN");
+        Role userRole = roleRepository.findByRole("ALUNO");
         usuario.setRole(new HashSet<Role>(Arrays.asList(userRole)));
         usuarioRepository.save(usuario);
     }
+
+
+
 
     public UsuarioService() {
     }

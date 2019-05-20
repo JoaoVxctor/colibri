@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+
 import javax.validation.Valid;
 
 @Controller
@@ -32,11 +33,17 @@ public class CadastroController {
     public ModelAndView cadastrar(@Valid Usuario usuario, Errors erros, Model model) {
         ModelAndView mv = new ModelAndView();
         if (erros.hasErrors()) {
-            mv.addObject("erros",erros);
+            mv.addObject("erros", erros);
+            mv.setViewName("view/pages/samples/register");
+            return mv;
+        }
+        if (usuarioService.findUsuarioByEmail(usuario.getEmail()) != null) {
+            mv.addObject("emailCadastrado", "usuario já existente");
             mv.setViewName("view/pages/samples/register");
             return mv;
         } else {
             usuarioService.saveUsuario(usuario);
+            mv.setViewName("index");
             return mv;
         }
     }
