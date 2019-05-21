@@ -40,8 +40,7 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.
-                authorizeRequests().anyRequest().permitAll();
-                /*
+                authorizeRequests()                
                 .antMatchers("/").permitAll()
                 .antMatchers("/index").permitAll()
                 .antMatchers("/login").permitAll()
@@ -52,13 +51,15 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
                 .loginPage("/login").permitAll()
                 .usernameParameter("email")
                 .passwordParameter("password")
-                .and().logout().permitAll();*/
+                .defaultSuccessUrl("/index")
+                .failureUrl("/login?erro=true")
+                .and().logout().permitAll();
     }
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication()
-                .withUser("joao.victor").password("admin").roles("ADMIN");
+                .withUser("joao@victor").password("admin").roles("ADMIN");
 
         auth.
                 jdbcAuthentication()
