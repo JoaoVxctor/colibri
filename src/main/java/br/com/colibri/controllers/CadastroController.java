@@ -26,7 +26,7 @@ public class CadastroController {
 
     @GetMapping
     public String cadastro(Usuario usuario) {
-        return "view/pages/samples/register";
+        return "register";
     }
 
     @PostMapping
@@ -34,12 +34,12 @@ public class CadastroController {
         ModelAndView mv = new ModelAndView();
         if (erros.hasErrors()) {
             mv.addObject("erros", erros);
-            mv.setViewName("view/pages/samples/register");
+            mv.setViewName("register");
             return mv;
         }
         if (usuarioService.findUsuarioByEmail(usuario.getEmail()) != null) {
             mv.addObject("emailCadastrado", "usuario já existente");
-            mv.setViewName("view/pages/samples/register");
+            mv.setViewName("register");
             return mv;
         } else {
             usuarioService.saveUsuario(usuario);

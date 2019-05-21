@@ -20,7 +20,7 @@ public class LoginController {
 
     @GetMapping("/login")
     public ModelAndView login(){
-        return new ModelAndView("view/pages/samples/login");
+        return new ModelAndView("login");
     }
  /*   @PostMapping("/login")
     public ModelAndView login( Model model, @ModelAttribute("usuario") Usuario usuario, Errors erros){
