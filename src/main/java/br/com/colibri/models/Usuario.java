@@ -36,7 +36,7 @@ public class Usuario {
     private Faculdade faculdade;
     @Enumerated(EnumType.STRING)
     private Curso curso;
-    private Boolean ativo = true;
+    private Boolean ativo ;
 
     public Usuario(Long id, @NotNull @Size(min = 4, max = 50) String nome, @Size(min = 1, message = "O campo e-mail não pode ser nulo ou vazio") @Email String email, @NotEmpty(message = "O campo senha não pode ser nulo") String senha, @NotNull(message = "O campo data de nascimento não pode ser nulo") Date datanasc, Genero genero, Set<Role> role, Faculdade faculdade, Curso curso, Boolean ativo) {
         this.id = id;
@@ -48,6 +48,14 @@ public class Usuario {
         this.role = role;
         this.faculdade = faculdade;
         this.curso = curso;
+        this.ativo = ativo;
+    }
+
+    public Boolean getAtivo() {
+        return ativo;
+    }
+
+    public void setAtivo(Boolean ativo) {
         this.ativo = ativo;
     }
 

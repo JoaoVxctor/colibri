@@ -40,9 +40,9 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.
-                authorizeRequests()                
-                .antMatchers("/").permitAll()
-                .antMatchers("/index").permitAll()
+                authorizeRequests()
+                .antMatchers("/").hasAuthority("ALUNO")
+                .antMatchers("/index").hasAuthority("ALUNO")
                 .antMatchers("/login").permitAll()
                 .antMatchers("/cadastro").permitAll()
                 .antMatchers("/admin/**").hasAuthority("ADMIN").anyRequest()
@@ -59,7 +59,7 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication()
-                .withUser("joao@victor").password("admin").roles("ADMIN");
+                .withUser("joao@victor").password("admin").authorities("ADMIN","PROFESSOR","USUARIO");
 
         auth.
                 jdbcAuthentication()
@@ -71,9 +71,10 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity web) throws Exception {
-        web
+       web
                 .ignoring()
-                .antMatchers("/resources/**", "/static/**", "/css/**","/maps/**", "/js/**", "/images/**","/","/index");
+                .antMatchers("/resources/**","/static/**","/css/**","/fonts.Roboto/**","/images/**","/js/**" ,"/PSD/**", "/scss/**","/vendors/**");
+
     }
 
     @Bean

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.Arrays;
 import java.util.HashSet;
 
@@ -27,11 +28,13 @@ public class UsuarioService {
         return usuarioRepository.findUsuarioByEmail(email);
     }
 
-    public void saveUsuario(Usuario usuario){
+    public void saveUsuario(Usuario usuario, HttpServletRequest request){
         usuario.setSenha(passwordEncoder.encode(usuario.getSenha()));
         Role userRole = roleRepository.findByRole("ALUNO");
         usuario.setRole(new HashSet<Role>(Arrays.asList(userRole)));
+        usuario.setAtivo(true);
         usuarioRepository.save(usuario);
+        request.getSession().setAttribute("usuarioID",usuario.getId());
     }
 
 

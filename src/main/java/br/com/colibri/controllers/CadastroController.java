@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 @Controller
@@ -30,21 +31,19 @@ public class CadastroController {
     }
 
     @PostMapping
-    public ModelAndView cadastrar(@Valid Usuario usuario, Errors erros, Model model) {
+    public String cadastrar(@Valid Usuario usuario, Errors erros, Model model, HttpServletRequest request) {
         ModelAndView mv = new ModelAndView();
         if (erros.hasErrors()) {
-            mv.addObject("erros", erros);
-            mv.setViewName("register");
-            return mv;
+            model.addAttribute("erros", erros);
+
+            return "cadastro";
         }
         if (usuarioService.findUsuarioByEmail(usuario.getEmail()) != null) {
-            mv.addObject("emailCadastrado", "usuario já existente");
-            mv.setViewName("register");
-            return mv;
+            model.addAttribute("emailCadastrado", "usuario já existente");
+            return "cadastro";
         } else {
-            usuarioService.saveUsuario(usuario);
-            mv.setViewName("index");
-            return mv;
+            usuarioService.saveUsuario(usuario, request);
+            return "redirect:/index";
         }
     }
 
