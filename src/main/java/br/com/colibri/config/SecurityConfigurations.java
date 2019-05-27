@@ -31,10 +31,8 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
     private String roleQuery;
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
-
-
-
-
+    @Autowired
+    private SecurityHandler securityHandler;
 
 
     @Override
@@ -51,7 +49,7 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
                 .loginPage("/login").permitAll()
                 .usernameParameter("email")
                 .passwordParameter("password")
-                .defaultSuccessUrl("/index")
+                .successHandler(securityHandler)
                 .failureUrl("/login?erro=true")
                 .and().logout().permitAll();
     }

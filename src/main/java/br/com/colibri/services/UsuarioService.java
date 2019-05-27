@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Optional;
 
 @Service
 public class UsuarioService {
@@ -34,7 +35,10 @@ public class UsuarioService {
         usuario.setRole(new HashSet<Role>(Arrays.asList(userRole)));
         usuario.setAtivo(true);
         usuarioRepository.save(usuario);
-        request.getSession().setAttribute("usuarioID",usuario.getId());
+        request.getSession().setAttribute("usuarioId",usuario.getId());
+    }
+    public Usuario findUsuarioById(Long id){
+        return usuarioRepository.findUsuarioById(id);
     }
 
 

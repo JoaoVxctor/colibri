@@ -36,7 +36,7 @@ public class CadastroController {
         if (erros.hasErrors()) {
             model.addAttribute("erros", erros);
 
-            return "cadastro";
+            return "register";
         }
         if (usuarioService.findUsuarioByEmail(usuario.getEmail()) != null) {
             model.addAttribute("emailCadastrado", "usuario já existente");
