@@ -49,7 +49,7 @@ public class SecurityHandler implements AuthenticationSuccessHandler {
 //            session.setAttribute("usuarioId", userId.getId());
             request.getSession().setAttribute("usuarioId",userId.getId());
             System.out.println(userId.getEmail());
-            response.sendRedirect("index");
+            response.sendRedirect("/index");
         }
     }
 }
