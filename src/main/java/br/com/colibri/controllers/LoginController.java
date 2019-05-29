@@ -7,30 +7,20 @@ import org.springframework.web.servlet.ModelAndView;
 
 import br.com.colibri.repositories.UsuarioRepository;
 
+import javax.servlet.http.HttpSession;
+
 @Controller
 public class LoginController {
 
-	UsuarioRepository usuarioRepository;
 
 	@GetMapping("/login")
-	public ModelAndView login() {
-		ModelAndView mv = new ModelAndView("login");
-//		if (erro == 1) {
-//			mv.addObject(erro);
-//			System.out.println("erro");
-//		}
-		return mv;
+	public String login() {
+
+		return "login";
 	}
-	/*
-	 * @PostMapping("/login") public ModelAndView login( Model
-	 * model, @ModelAttribute("usuario") Usuario usuario, Errors erros){
-	 * ModelAndView mv = new ModelAndView(); if(erros.hasErrors()){
-	 * mv.setViewName("view/pages/samples/login"); mv.addObject("erros",erros);
-	 * return mv; }else{
-	 * 
-	 * 
-	 * return null; }
-	 * 
-	 * }
-	 */
+	@GetMapping("/logout")
+	public String logout(HttpSession session){
+		session.invalidate();
+		return "redirect:/login";
+	}
 }
