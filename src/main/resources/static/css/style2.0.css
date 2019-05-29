@@ -1,0 +1,21 @@
+.btn-teste {
+  color: #fff;
+  background-color: #00ce68;
+  border-color: #00ce68; }
+  .btn-success:hover {
+    color: #fff;
+    background-color: #00a855;
+    border-color: #009b4e; }
+  .btn-success:focus, .btn-success.focus {
+    box-shadow: 0 0 0 0.2rem rgba(0, 206, 104, 0.5); }
+  .btn-success.disabled, .btn-success:disabled {
+    color: #fff;
+    background-color: #00ce68;
+    border-color: #00ce68; }
+.btn-bloquedo {
+  hover: none;
+  text-decoration: none;
+  display: block;
+  width: 100%; }
+  .btn-block + .btn-block {
+    margin-top: 0.5rem; }

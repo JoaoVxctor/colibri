@@ -20,8 +20,6 @@ public class Projeto {
 	private List<Usuario> participantes;
 	@ManyToMany
 	private List<Avaliacao> avaliacao;
-	@ManyToMany
-	private List<Documento> documento;
 	@OneToOne
 	private Forum forum;
 	@ManyToMany
@@ -89,14 +87,6 @@ public class Projeto {
 
 	public void setAvaliacao(List<Avaliacao> avaliacao) {
 		this.avaliacao = avaliacao;
-	}
-
-	public List<Documento> getDocumento() {
-		return documento;
-	}
-
-	public void setDocumento(List<Documento> documento) {
-		this.documento = documento;
 	}
 
 	public Forum getForum() {

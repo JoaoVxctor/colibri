@@ -14,124 +14,107 @@ import javax.validation.constraints.Size;
 @Entity
 public class Usuario {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    @NotNull
-    @Size(min=4,max=50)
-    private String nome;
-    @Size(min = 1, message = "O campo e-mail não pode ser nulo ou vazio")
-    @Email
-    private String email;
-    @NotEmpty(message = "O campo senha não pode ser nulo")
-    private String senha;
-    @NotNull(message = "O campo data de nascimento não pode ser nulo")
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private Date datanasc;
-    @Enumerated(EnumType.STRING)
-    private Genero genero;
-    @ManyToMany
-    private Set<Role> role;
-    @OneToOne
-    private Faculdade faculdade;
-    @Enumerated(EnumType.STRING)
-    private Curso curso;
-    private Boolean ativo ;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	@NotNull
+	@Size(min = 4, max = 50)
+	private String nome;
+	@Size(min = 1, message = "O campo e-mail não pode ser nulo ou vazio")
+	@Email
+	private String email;
+	@NotEmpty(message = "O campo senha não pode ser nulo")
+	private String senha;
+	@NotNull(message = "O campo data de nascimento não pode ser nulo")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private Date datanasc;
+	@Enumerated(EnumType.STRING)
+	private Genero genero;
+	@ManyToMany
+	private Set<Role> role;
 
-    public Usuario(Long id, @NotNull @Size(min = 4, max = 50) String nome, @Size(min = 1, message = "O campo e-mail não pode ser nulo ou vazio") @Email String email, @NotEmpty(message = "O campo senha não pode ser nulo") String senha, @NotNull(message = "O campo data de nascimento não pode ser nulo") Date datanasc, Genero genero, Set<Role> role, Faculdade faculdade, Curso curso, Boolean ativo) {
-        this.id = id;
-        this.nome = nome;
-        this.email = email;
-        this.senha = senha;
-        this.datanasc = datanasc;
-        this.genero = genero;
-        this.role = role;
-        this.faculdade = faculdade;
-        this.curso = curso;
-        this.ativo = ativo;
-    }
+	private Boolean ativo;
 
-    public Boolean getAtivo() {
-        return ativo;
-    }
+	public Usuario(Long id, @NotNull @Size(min = 4, max = 50) String nome,
+			@Size(min = 1, message = "O campo e-mail não pode ser nulo ou vazio") @Email String email,
+			@NotEmpty(message = "O campo senha não pode ser nulo") String senha,
+			@NotNull(message = "O campo data de nascimento não pode ser nulo") Date datanasc, Genero genero,
+			Set<Role> role, Boolean ativo) {
+		this.id = id;
+		this.nome = nome;
+		this.email = email;
+		this.senha = senha;
+		this.datanasc = datanasc;
+		this.genero = genero;
+		this.role = role;
 
-    public void setAtivo(Boolean ativo) {
-        this.ativo = ativo;
-    }
+		this.ativo = ativo;
+	}
 
-    public Long getId() {
-        return id;
-    }
+	public Boolean getAtivo() {
+		return ativo;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public void setAtivo(Boolean ativo) {
+		this.ativo = ativo;
+	}
 
-    public String getNome() {
-        return nome;
-    }
+	public Long getId() {
+		return id;
+	}
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    public String getEmail() {
-        return email;
-    }
+	public String getNome() {
+		return nome;
+	}
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 
-    public String getSenha() {
-        return senha;
-    }
+	public String getEmail() {
+		return email;
+	}
 
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
-    public Date getDatanasc() {
-        return datanasc;
-    }
+	public String getSenha() {
+		return senha;
+	}
 
-    public void setDatanasc(Date datanasc) {
-        this.datanasc = datanasc;
-    }
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
 
-    public Genero getGenero() {
-        return genero;
-    }
+	public Date getDatanasc() {
+		return datanasc;
+	}
 
-    public void setGenero(Genero genero) {
-        this.genero = genero;
-    }
+	public void setDatanasc(Date datanasc) {
+		this.datanasc = datanasc;
+	}
 
-    public Set<Role> getRole() {
-        return role;
-    }
+	public Genero getGenero() {
+		return genero;
+	}
 
-    public void setRole(Set<Role> role) {
-        this.role = role;
-    }
+	public void setGenero(Genero genero) {
+		this.genero = genero;
+	}
 
-    public Faculdade getFaculdade() {
-        return faculdade;
-    }
+	public Set<Role> getRole() {
+		return role;
+	}
 
-    public void setFaculdade(Faculdade faculdade) {
-        this.faculdade = faculdade;
-    }
+	public void setRole(Set<Role> role) {
+		this.role = role;
+	}
 
-    public Curso getCurso() {
-        return curso;
-    }
-
-    public void setCurso(Curso curso) {
-        this.curso = curso;
-    }
-
-
-    public Usuario() {
-    }
+	public Usuario() {
+	}
 }

@@ -32,7 +32,6 @@ public class CadastroController {
 
     @PostMapping
     public String cadastrar(@Valid Usuario usuario, Errors erros, Model model, HttpServletRequest request) {
-        ModelAndView mv = new ModelAndView();
         if (erros.hasErrors()) {
             model.addAttribute("erros", erros);
 
