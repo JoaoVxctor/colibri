@@ -7,13 +7,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/grupo")
+@RequestMapping("/projeto")
 
 public class ProjetoController {
 	private ProjetoService projetoService;
 	@GetMapping("/novo")
 	public String novo() {
-		return "cadastrargrupo";
+		return "cadastrar-projeto";
 	}
 	@PostMapping("/novo")
 	public String novoProjeto(){
