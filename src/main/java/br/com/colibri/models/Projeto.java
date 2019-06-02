@@ -12,7 +12,7 @@ public class Projeto {
 	private Long id;
 	private String nome;
 	private LocalDateTime dataCriacao;
-	private LocalDateTime data;
+	private LocalDateTime dataFinalizacao;
 	private String descricao;
 	private double nota;
 	@OneToOne
@@ -23,19 +23,6 @@ public class Projeto {
 	private List<Avaliacao> avaliacao;
 	@ManyToMany
 	private List<Sprint> sprint;
-
-	public Projeto(Long id, String nome, LocalDateTime dataCriacao, LocalDateTime data, String descricao, double nota, Usuario criador, List<Usuario> participantes, List<Avaliacao> avaliacao, List<Sprint> sprint) {
-		this.id = id;
-		this.nome = nome;
-		this.dataCriacao = dataCriacao;
-		this.data = data;
-		this.descricao = descricao;
-		this.nota = nota;
-		this.criador = criador;
-		this.participantes = participantes;
-		this.avaliacao = avaliacao;
-		this.sprint = sprint;
-	}
 
 	public Long getId() {
 		return id;
@@ -61,12 +48,12 @@ public class Projeto {
 		this.dataCriacao = dataCriacao;
 	}
 
-	public LocalDateTime getData() {
-		return data;
+	public LocalDateTime getDataFinalizacao() {
+		return dataFinalizacao;
 	}
 
-	public void setData(LocalDateTime data) {
-		this.data = data;
+	public void setDataFinalizacao(LocalDateTime dataFinalizacao) {
+		this.dataFinalizacao = dataFinalizacao;
 	}
 
 	public String getDescricao() {
@@ -114,6 +101,19 @@ public class Projeto {
 	}
 
 	public void setSprint(List<Sprint> sprint) {
+		this.sprint = sprint;
+	}
+
+	public Projeto(Long id, String nome, LocalDateTime dataCriacao, LocalDateTime dataFinalizacao, String descricao, double nota, Usuario criador, List<Usuario> participantes, List<Avaliacao> avaliacao, List<Sprint> sprint) {
+		this.id = id;
+		this.nome = nome;
+		this.dataCriacao = dataCriacao;
+		this.dataFinalizacao = dataFinalizacao;
+		this.descricao = descricao;
+		this.nota = nota;
+		this.criador = criador;
+		this.participantes = participantes;
+		this.avaliacao = avaliacao;
 		this.sprint = sprint;
 	}
 

@@ -56,10 +56,11 @@ public class ProjetoController {
 
             if (projetoService.novoProjeto(projeto)) {
                 System.out.println("foi :>");
-                redirectAttributes.addFlashAttribute("msg","Projeto criado com sucesso");
+                String mensagem = "Projeto " + projeto.getId() + " - " + projeto.getNome() +" criado com sucesso";
+                redirectAttributes.addFlashAttribute("msg",mensagem);
             } else {
                 System.out.println("nn foi =<");
-                redirectAttributes.addFlashAttribute("msg","Projeto criado com sucesso");
+                redirectAttributes.addFlashAttribute("msg","Algo de errado ocorreu.");
             }
         } catch (Exception e) {
             System.out.println(e);

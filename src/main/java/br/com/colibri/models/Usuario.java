@@ -2,6 +2,7 @@ package br.com.colibri.models;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.Set;
 
@@ -27,7 +28,7 @@ public class Usuario {
 	private String senha;
 	@NotNull(message = "O campo data de nascimento não pode ser nulo")
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private Date datanasc;
+	private LocalDate datanasc;
 	@Enumerated(EnumType.STRING)
 	private Genero genero;
 	@ManyToMany
@@ -52,7 +53,7 @@ public class Usuario {
 	public Usuario(Long id, @NotNull @Size(min = 4, max = 50) String nome,
 			@Size(min = 1, message = "O campo e-mail não pode ser nulo ou vazio") @Email String email,
 			@NotEmpty(message = "O campo senha não pode ser nulo") String senha,
-			@NotNull(message = "O campo data de nascimento não pode ser nulo") Date datanasc, Genero genero,
+			@NotNull(message = "O campo data de nascimento não pode ser nulo") LocalDate datanasc, Genero genero,
 			Set<Role> role, Boolean ativo) {
 		this.id = id;
 		this.nome = nome;
@@ -105,11 +106,11 @@ public class Usuario {
 		this.senha = senha;
 	}
 
-	public Date getDatanasc() {
+	public LocalDate getDatanasc() {
 		return datanasc;
 	}
 
-	public void setDatanasc(Date datanasc) {
+	public void setDatanasc(LocalDate datanasc) {
 		this.datanasc = datanasc;
 	}
 
