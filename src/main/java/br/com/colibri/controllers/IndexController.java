@@ -1,5 +1,6 @@
 package br.com.colibri.controllers;
 
+import br.com.colibri.models.Projeto;
 import br.com.colibri.models.Usuario;
 import br.com.colibri.services.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
@@ -23,7 +25,7 @@ public class IndexController {
 	}
 
 	@GetMapping
-	public String index(Model model, HttpSession session) {
+	public String index(Model model, HttpSession session, Projeto projeto, RedirectAttributes redirectAttributes) {
 		@SuppressWarnings("unchecked")
 		Long usuarioId = (Long) session.getAttribute("usuarioId");
 		if(usuarioId == null){
@@ -31,8 +33,8 @@ public class IndexController {
 			return "redirect:/login";
 		}
 		Usuario usuario = usuarioService.findUsuarioById(usuarioId);
-		System.out.println(usuario.getEmail() + " "+ usuario.getNome());
 		model.addAttribute("usuario", usuario);
+		model.addAttribute(redirectAttributes.getFlashAttributes());
 		return "index";
 	}
 	

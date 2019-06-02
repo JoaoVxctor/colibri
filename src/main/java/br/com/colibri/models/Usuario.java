@@ -33,6 +33,20 @@ public class Usuario {
 	@ManyToMany
 	private Set<Role> role;
 
+	@Override
+	public String toString() {
+		return "Usuario{" +
+				"id=" + id +
+				", nome='" + nome + '\'' +
+				", email='" + email + '\'' +
+				", senha='" + senha + '\'' +
+				", datanasc=" + datanasc +
+				", genero=" + genero +
+				", role=" + role +
+				", ativo=" + ativo +
+				'}';
+	}
+
 	private Boolean ativo;
 
 	public Usuario(Long id, @NotNull @Size(min = 4, max = 50) String nome,

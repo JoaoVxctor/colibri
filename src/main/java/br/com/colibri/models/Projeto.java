@@ -13,17 +13,29 @@ public class Projeto {
 	private String nome;
 	private LocalDateTime dataCriacao;
 	private LocalDateTime data;
+	private String descricao;
 	private double nota;
 	@OneToOne
 	private Usuario criador;
-	@ManyToMany
+	@ManyToMany(cascade = CascadeType.ALL)
 	private List<Usuario> participantes;
 	@ManyToMany
 	private List<Avaliacao> avaliacao;
-	@OneToOne
-	private Forum forum;
 	@ManyToMany
 	private List<Sprint> sprint;
+
+	public Projeto(Long id, String nome, LocalDateTime dataCriacao, LocalDateTime data, String descricao, double nota, Usuario criador, List<Usuario> participantes, List<Avaliacao> avaliacao, List<Sprint> sprint) {
+		this.id = id;
+		this.nome = nome;
+		this.dataCriacao = dataCriacao;
+		this.data = data;
+		this.descricao = descricao;
+		this.nota = nota;
+		this.criador = criador;
+		this.participantes = participantes;
+		this.avaliacao = avaliacao;
+		this.sprint = sprint;
+	}
 
 	public Long getId() {
 		return id;
@@ -55,6 +67,14 @@ public class Projeto {
 
 	public void setData(LocalDateTime data) {
 		this.data = data;
+	}
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
 	}
 
 	public double getNota() {
@@ -89,19 +109,14 @@ public class Projeto {
 		this.avaliacao = avaliacao;
 	}
 
-	public Forum getForum() {
-		return forum;
-	}
-
-	public void setForum(Forum forum) {
-		this.forum = forum;
-	}
-
 	public List<Sprint> getSprint() {
 		return sprint;
 	}
 
 	public void setSprint(List<Sprint> sprint) {
 		this.sprint = sprint;
+	}
+
+	public Projeto() {
 	}
 }
