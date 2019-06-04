@@ -53,4 +53,8 @@ public class ProjetoService {
 
         return true;
     }
+
+    public  Projeto findProjetoById(Long id){
+        return projetoRepository.findProjetoById(id);
+    }
 }
