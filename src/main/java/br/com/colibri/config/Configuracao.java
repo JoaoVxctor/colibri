@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Import;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication(scanBasePackages = { "br.com.colibri.config","br.com.colibri.controllers","br.com.colibri.repositories","br.com.colibri.models","br.com.colibri.services"})
-@ComponentScan({"br.com.colibri.config","br.com.colibri.controllers","br.com.colibri.repositories","br.com.colibri.models","br.com.colibri.services"})
+@ComponentScan({"br.com.colibri.config","br.com.colibri.controllers","br.com.colibri.repositories","br.com.colibri.models","br.com.colibri.services","br.com.colibri.dao"})
 @Import({SecurityConfigurations.class})
 @EntityScan("br.com.colibri.models")
 @EnableJpaRepositories("br.com.colibri.repositories")

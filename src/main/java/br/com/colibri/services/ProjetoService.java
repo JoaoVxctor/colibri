@@ -1,5 +1,6 @@
 package br.com.colibri.services;
 
+import br.com.colibri.dao.ProjetoDAO;
 import br.com.colibri.models.Projeto;
 import br.com.colibri.models.Usuario;
 import br.com.colibri.repositories.ProjetoRepository;
@@ -16,12 +17,14 @@ public class ProjetoService {
     private ProjetoRepository projetoRepository;
     private UsuarioService usuarioService;
     private EntityManager entityManager;
+    private ProjetoDAO projetoDAO;
 
     @Autowired
-    public ProjetoService(ProjetoRepository projetoRepository, UsuarioService usuarioService, EntityManager entityManager) {
+    public ProjetoService(ProjetoRepository projetoRepository, UsuarioService usuarioService, EntityManager entityManager, ProjetoDAO projetoDAO) {
         this.projetoRepository = projetoRepository;
         this.usuarioService = usuarioService;
         this.entityManager = entityManager;
+        this.projetoDAO = projetoDAO;
     }
 
     public boolean novoProjeto(Projeto projeto) {
@@ -56,5 +59,9 @@ public class ProjetoService {
 
     public  Projeto findProjetoById(Long id){
         return projetoRepository.findProjetoById(id);
+    }
+
+    public List<Projeto> findProjetoByParticipante(Long id){
+        return projetoDAO.projetosParticipantes(id);
     }
 }
