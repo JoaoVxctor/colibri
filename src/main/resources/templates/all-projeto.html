@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
 <head>
   <!-- Required meta tags -->
@@ -332,12 +332,12 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
+                        <tr th:each="projeto : ${projetos}">
                           <td class="py-1">
                             <img src="../../images/faces-clipart/pic-1.png" alt="image" />
                           </td>
-                          <td>
-                            Iniciativa Colibri
+                          <td >
+
                           </td>
                           <td>
                             <div class="progress">
@@ -353,7 +353,7 @@
                           <button type="button" class="btn btn-primary dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Menu
                           </button>
-						  
+
                           <div class="dropdown-menu">
                             <a class="dropdown-item" href="#">
                               <i class="fa fa-reply fa-fw"></i>Visualizar</a>
@@ -368,220 +368,10 @@
                         </div></td>
                           </td>
                         </tr>
-                        <tr>
-                          <td class="py-1">
-                            <img src="../../images/faces-clipart/pic-2.png" alt="image" />
-                          </td>
-                          <td>
-                            Iniciativa Colibri
-                          </td>
-                          <td>
-                            <div class="progress">
-                              <div class="progress-bar bg-danger" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                          </td>
-                          <td>
-                            Dilma
-                          </td>
-                          <td>
-                            15 de Dezembro de 2019
-							<td> <div class="btn-group dropdown">
-                          <button type="button" class="btn btn-primary dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Menu
-                          </button>
-						  
-                          <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">
-                              <i class="fa fa-reply fa-fw"></i>Visualizar</a>
-                            <a class="dropdown-item" href="#">
-					<a href="#response" class="dropdown-item" data-toggle="modal" data-target="#editar">Editar</a>
-							  <div class="dropdown-divider"></div>
-					<a href="#response" class="dropdown-item" data-toggle="modal" data-target="#response">Adicionar Sprint</a>
-                            <a class="dropdown-item" href="#">
-					<a href="#response" class="dropdown-item" data-toggle="modal" data-target="#response2">Adicionar Tarefa</a>
 
-                          </div>
-                        </div></td>
-                          </td>
                         </tr>
-                        <tr>
-                          <td class="py-1">
-                            <img src="../../images/faces-clipart/pic-3.png" alt="image" />
-                          </td>
-                          <td>
-                            Iniciativa Colibri
-                          </td>
-                          <td>
-                            <div class="progress">
-                              <div class="progress-bar bg-warning" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                          </td>
-                          <td>
-                            Dilma
-                          </td>
-                          <td>
-                            15 de Dezembro de 2019
-							<td> <div class="btn-group dropdown">
-                          <button type="button" class="btn btn-primary dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Menu
-                          </button>
-						  
-                            <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">
-                              <i class="fa fa-reply fa-fw"></i>Visualizar</a>
-                            <a class="dropdown-item" href="#">
-					<a href="#response" class="dropdown-item" data-toggle="modal" data-target="#editar">Editar</a>
-							  <div class="dropdown-divider"></div>
-					<a href="#response" class="dropdown-item" data-toggle="modal" data-target="#response">Adicionar Sprint</a>
-                            <a class="dropdown-item" href="#">
-					<a href="#response" class="dropdown-item" data-toggle="modal" data-target="#response2">Adicionar Tarefa</a>
-
-                          </div>
-                        </div></td>
-						  </td>
                         </tr>
-                        <tr>
-                          <td class="py-1">
-                            <img src="../../images/faces-clipart/pic-4.png" alt="image" />
-                          </td>
-                          <td>
-                           Iniciativa Colibri
-                          </td>
-                          <td>
-                            <div class="progress">
-                              <div class="progress-bar bg-primary" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                          </td>
-                          <td>
-                            Dilma
-                          </td>
-                          <td>
-                            15 de Dezembro de 2019
-							<td> <div class="btn-group dropdown">
-                          <button type="button" class="btn btn-primary dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Menu
-                          </button>
-						  
-                          <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">
-                              <i class="fa fa-reply fa-fw"></i>Visualizar</a>
-                            <a class="dropdown-item" href="#">
-					<a href="#response" class="dropdown-item" data-toggle="modal" data-target="#editar">Editar</a>
-							  <div class="dropdown-divider"></div>
-					<a href="#response" class="dropdown-item" data-toggle="modal" data-target="#response">Adicionar Sprint</a>
-                            <a class="dropdown-item" href="#">
-					<a href="#response" class="dropdown-item" data-toggle="modal" data-target="#response2">Adicionar Tarefa</a>
 
-                          </div>
-                        </div></td>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td class="py-1">
-                            <img src="../../images/faces-clipart/pic-1.png" alt="image" />
-                          </td>
-                          <td>
-                            Iniciativa Colibri
-                          </td>
-                          <td>
-                            <div class="progress">
-                              <div class="progress-bar bg-danger" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                          </td>
-                          <td>
-                            Dilma
-                          </td>
-                          <td>
-                            15 de Dezembro de 2019
-							<td><div class="btn-group dropdown">
-                          <button type="button" class="btn btn-primary dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Menu
-                          </button>
-						  
-                          <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">
-                              <i class="fa fa-reply fa-fw"></i>Visualizar</a>
-                            <a class="dropdown-item" href="#">
-					<a href="#response" class="dropdown-item" data-toggle="modal" data-target="#editar">Editar</a>
-							  <div class="dropdown-divider"></div>
-					<a href="#response" class="dropdown-item" data-toggle="modal" data-target="#response">Adicionar Sprint</a>
-                            <a class="dropdown-item" href="#">
-					<a href="#response" class="dropdown-item" data-toggle="modal" data-target="#response2">Adicionar Tarefa</a>
-
-                          </div>
-                        </div></td>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td class="py-1">
-                            <img src="../../images/faces-clipart/pic-2.png" alt="image" />
-                          </td>
-                          <td>
-                            Iniciativa Colibri
-                          </td>
-                          <td>
-                            <div class="progress">
-                              <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                          </td>
-                          <td>
-                            Dilma
-                          </td>
-                          <td>
-                            15 de Dezembro de 2019
-							<td><div class="btn-group dropdown">
-                          <button type="button" class="btn btn-primary dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Menu
-                          </button>
-                          <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">
-                              <i class="fa fa-reply fa-fw"></i>Visualizar</a>
-                            <a class="dropdown-item" href="#">
-					<a href="#response" class="dropdown-item" data-toggle="modal" data-target="#editar">Editar</a>
-							  <div class="dropdown-divider"></div>
-					<a href="#response" class="dropdown-item" data-toggle="modal" data-target="#response">Adicionar Sprint</a>
-                            <a class="dropdown-item" href="#">
-					<a href="#response" class="dropdown-item" data-toggle="modal" data-target="#response2">Adicionar Tarefa</a>
-
-                          </div>
-                        </div></td>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td class="py-1">
-                            <img src="../../images/faces-clipart/pic-3.png" alt="image" />
-                          </td>
-                          <td>
-                            Iniciativa Colibri
-                          </td>
-                          <td>
-                            <div class="progress">
-                              <div class="progress-bar bg-warning" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                          </td>
-                          <td>
-                            Dilma
-                          </td>
-                          <td>
-                            15 de Dezembro de 2019
-							<td><div class="btn-group dropdown">
-                          <button type="button" class="btn btn-primary dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Menu
-                          </button>
-						  
-                          <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">
-                              <i class="fa fa-reply fa-fw"></i>Visualizar</a>
-                            <a class="dropdown-item" href="#">
-					<a href="#response" class="dropdown-item" data-toggle="modal" data-target="#editar">Editar</a>
-							  <div class="dropdown-divider"></div>
-					<a href="#response" class="dropdown-item" data-toggle="modal" data-target="#response">Adicionar Sprint</a>
-                            <a class="dropdown-item" href="#">
-					<a href="#response" class="dropdown-item" data-toggle="modal" data-target="#response2">Adicionar Tarefa</a>
-
-                          </div>
-                        </div></td>
-                          </td>
                         </tr>
                       </tbody>
                     </table>
@@ -591,7 +381,7 @@
             </div>
           </div>
         </div>
-		
+
 		                            
 														
         <!-- velho aqui eh o modal tlgd tu n pode mexer deixa aqui -->

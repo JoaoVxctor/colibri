@@ -24,6 +24,44 @@ public class Projeto {
 	@ManyToMany
 	private List<Sprint> sprint;
 
+	public Boolean getFinalizado() {
+		return finalizado;
+	}
+
+	public void setFinalizado(Boolean finalizado) {
+		this.finalizado = finalizado;
+	}
+
+	public double getProgresso() {
+		return progresso;
+	}
+
+	public void setProgresso(double progresso) {
+		this.progresso = progresso;
+	}
+
+	public Projeto(Long id, String nome, LocalDateTime dataCriacao, LocalDateTime dataFinalizacao, String descricao, double nota, Usuario criador, List<Usuario> participantes, List<Avaliacao> avaliacao, List<Sprint> sprint, Boolean finalizado, double progresso) {
+		this.id = id;
+		this.nome = nome;
+		this.dataCriacao = dataCriacao;
+		this.dataFinalizacao = dataFinalizacao;
+		this.descricao = descricao;
+		this.nota = nota;
+		this.criador = criador;
+		this.participantes = participantes;
+		this.avaliacao = avaliacao;
+		this.sprint = sprint;
+		this.finalizado = finalizado;
+		this.progresso = progresso;
+	}
+
+	private Boolean finalizado;
+	private double progresso;
+
+	public Projeto(Boolean finalizado) {
+		this.finalizado = finalizado;
+	}
+
 	public Long getId() {
 		return id;
 	}
@@ -104,18 +142,7 @@ public class Projeto {
 		this.sprint = sprint;
 	}
 
-	public Projeto(Long id, String nome, LocalDateTime dataCriacao, LocalDateTime dataFinalizacao, String descricao, double nota, Usuario criador, List<Usuario> participantes, List<Avaliacao> avaliacao, List<Sprint> sprint) {
-		this.id = id;
-		this.nome = nome;
-		this.dataCriacao = dataCriacao;
-		this.dataFinalizacao = dataFinalizacao;
-		this.descricao = descricao;
-		this.nota = nota;
-		this.criador = criador;
-		this.participantes = participantes;
-		this.avaliacao = avaliacao;
-		this.sprint = sprint;
-	}
+
 
 	public Projeto() {
 	}
