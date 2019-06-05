@@ -167,7 +167,10 @@
                             Gerenciar Conta
                         </a>
                         <a class="dropdown-item">
-                            Sign Out
+                            Trocar Senha
+                        </a>
+                        <a class="dropdown-item">
+                            Sair
                         </a>
                     </div>
                 </li>
@@ -230,7 +233,6 @@
                                                 </div>
                                             </div>
                                         </div>
-
                                         <div class="col-md-6">
                                             <div class="row">
                                                 <div class="col-md-6">
@@ -242,31 +244,27 @@
                                                     </div>
                                                 </div>
                                             </div>
-
                                             <div>
                                                 <div class="form-group row">
                                                     <label class="col-sm-3 col-form-label text-left">Documento</label>
                                                     <div class="col-sm-9">
                                                         <div class="input-group col-xs-12=">
-                                                            <input type="text" class="form-control file-upload-info" disabled="">
-                                                            <span class="input-group-append">
-                                                                <button class="file-upload-browse btn btn-info" type="file">Upload</button>
-                                                            </span>
+                                                            <div class="custom-file">
+                                                                <input type="file" class="custom-file-input" id="customFileLang" lang="pt">
+                                                                <label class="custom-file-label" for="customFileLang">Selecionar Arquivo</label>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-
                                             <div class="form-group row">
                                                 <label class="col-sm-3 col-form-label">Inicio do Projeto</label>
-
                                                 <div class="col-sm-9">
-                                                    <label class="col-sm-3 col-form-label" th:text="${{projeto.dataCriacao}}"></label>
+                                                    <label class="col-sm-3 col-form-label border border-secondary rounded" th:text="${{projeto.dataCriacao}}"></label>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-
                                 </form>
                                 <div class="row">
                                     <div class="col-md-6">
