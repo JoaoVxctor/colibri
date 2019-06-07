@@ -75,7 +75,7 @@ public class ProjetoController {
     @GetMapping("/{id}")
     public String projetoView(@PathVariable("id") Long id, Model model ){
         Projeto projeto = projetoService.findProjetoById(id);
-        model.addAttribute("projetos",projeto);
+        model.addAttribute("projeto",projeto);
         return "projeto-view";
     }
 
