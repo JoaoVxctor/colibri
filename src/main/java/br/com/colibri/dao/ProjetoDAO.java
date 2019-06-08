@@ -27,7 +27,7 @@ public class ProjetoDAO {
 
     public List<Projeto> projetosParticipantes(Long id){
         List<Projeto> projetos = new ArrayList<>();
-        Query query = entityManager.createNativeQuery("SELECT projeto.id FROM projeto INNER JOIN projeto_participantes ON projeto_participantes.participantes_id = :id group by projeto.id");
+        Query query = entityManager.createNativeQuery("SELECT DISTINCT projeto_id FROM vw_projeto_participantes WHERE participantes_id  = :id");
         query.setParameter("id",id);
         List<BigInteger> result = query.getResultList();
 

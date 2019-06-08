@@ -28,12 +28,5 @@ public class UsuarioController {
         return "";
     }
 
-    @GetMapping("/{id}/projetos")
-    public String usuarioProjeto(@PathVariable("id") Long id, Model model, RedirectAttributes redirectAttributes) {
 
-        model.addAttribute("projetos", projetoService.findProjetoByParticipante(id));
-
-
-        return "all-projeto";
-    }
 }

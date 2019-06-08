@@ -79,6 +79,14 @@ public class ProjetoController {
         return "projeto-view";
     }
 
+    @GetMapping
+    public String usuarioProjeto(HttpSession session,Model model, RedirectAttributes redirectAttributes) {
+
+        model.addAttribute("projetos", projetoService.findProjetoByParticipante((Long)session.getAttribute("usuarioId")));
+
+
+        return "all-projeto";
+    }
 
 }
 
