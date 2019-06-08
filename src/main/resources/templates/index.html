@@ -220,7 +220,21 @@
                         <i class="menu-icon mdi mdi-table"></i>
                         <span class="menu-title">Teste</span>
                     </a>
+
+
                 </li>
+
+                <li class="nav-item">
+                    <a class="nav-link btn" action="#">
+                        <i class="menu-icon mdi mdi-table"></i>
+                        <span class="menu-title" data-toggle="modal"
+                              data-target="#email-ver">E-mail</span>
+                    </a>
+
+
+                </li>
+
+
                 <li class="nav-item">
                 </li>
             </ul>
@@ -425,6 +439,37 @@
                         </div>
                     </div>
 
+                    <div class="modal fade" id="email-ver" tabindex="-1" role="dialog"
+                         aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <form action="#" th:action="@{/projeto/novo}" th:object="${projeto}" method="post">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Cadastrar Avaliador</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="form-group">
+                                            <label for="membro-2" class="col-form-label">E-mail Avaliador:</label>
+                                            <input type="text" class="form-control" id="membro-2" name="membro-2"  th:field ="*{participantes[2].email}"
+                                                   placeholder="ex: marcio@marcio.com"/>
+                                        </div>
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal" action="/">
+                                            Fechar
+                                        </button>
+                                        <button type="submit" class="btn btn-primary">Enviar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+
                     <div class="modal fade" id="cadastro-projeto" tabindex="-1" role="dialog"
                          aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <form action="#" th:action="@{/projeto/novo}" th:object="${projeto}" method="post">
@@ -456,8 +501,8 @@
                                         <div class="form-group">
                                             <label for="descricao" class="col-form-label">Descrição:</label>
                                             <textarea  th:field ="*{descricao}" class="form-control" id="descricao" name="descricao"
-                                                      placeholder="ex: A iniciativa Colibri tem como objetivo..."
-                                                      rows="10"></textarea>
+                                                       placeholder="ex: A iniciativa Colibri tem como objetivo..."
+                                                       rows="10"></textarea>
                                         </div>
 
                                     </div>
@@ -471,6 +516,8 @@
                             </div>
                         </form>
                     </div>
+
+
 
                 </div>
 
