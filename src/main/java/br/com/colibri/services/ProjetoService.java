@@ -61,7 +61,8 @@ public class ProjetoService {
         return projetoRepository.findProjetoById(id);
     }
 
-    public List<Projeto> findProjetoByParticipante(Long id){
-        return projetoDAO.projetosParticipantes(id);
+    public List<Projeto> findProjetoByParticipante(Long id, Integer limit){
+        return projetoDAO.projetosParticipantes(id, limit);
     }
+
 }

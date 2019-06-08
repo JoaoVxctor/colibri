@@ -16,6 +16,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import javax.servlet.http.HttpSession;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 @Controller
@@ -76,14 +78,14 @@ public class ProjetoController {
     public String projetoView(@PathVariable("id") Long id, Model model ){
         Projeto projeto = projetoService.findProjetoById(id);
         model.addAttribute("projeto",projeto);
-        return "projeto-view";
+        return "projeto-view-avaliador";
     }
 
     @GetMapping
     public String usuarioProjeto(HttpSession session,Model model, RedirectAttributes redirectAttributes) {
-
-        model.addAttribute("projetos", projetoService.findProjetoByParticipante((Long)session.getAttribute("usuarioId")));
-
+        List<Projeto> projetos = projetoService.findProjetoByParticipante((Long) session.getAttribute("usuarioId"), 1000);
+        Collections.reverse(projetos);
+        model.addAttribute("projetos", projetos);
 
         return "all-projeto";
     }

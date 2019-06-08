@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @Controller
 @RequestMapping(path = {"/index","/"})
@@ -29,8 +30,9 @@ public class IndexController {
 	public String index(Model model, HttpSession session, Projeto projeto, RedirectAttributes redirectAttributes) {
 		@SuppressWarnings("unchecked")
 		Long usuarioId = (Long) session.getAttribute("usuarioId");
-
+        List<Projeto> projetos = projetoService.findProjetoByParticipante(usuarioId,5);
 		Usuario usuario = usuarioService.findUsuarioById(usuarioId);
+		model.addAttribute("projetos",projetos);
 		model.addAttribute("usuario", usuario);
 		model.addAttribute(redirectAttributes.getFlashAttributes());
 		return "index";

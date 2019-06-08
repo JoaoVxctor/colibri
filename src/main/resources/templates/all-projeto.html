@@ -341,7 +341,7 @@
                                         <tbody>
                                         <tr th:each="projeto : ${projetos}">
                                             <td class="py-1">
-                                                <img alt="image" src="../../images/faces-clipart/pic-1.png"/>
+                                                <div class="label" th:text="${projeto.id}"></div>
                                             </td>
                                             <td >
                                                 <div class="label" th:text="${projeto.nome}"></div>
@@ -368,7 +368,7 @@
                                                     </button>
 
                                                     <div class="dropdown-menu">
-                                                        <a class="dropdown-item" th:href="@{/{projeto.id}}" >
+                                                        <a class="dropdown-item" th:href="@{'/projeto/'+${projeto.id}}" >
                                                             <i class="fa fa-reply fa-fw"></i>Visualizar</a>
                                                         <a class="dropdown-item" >
                                                             <a class="dropdown-item" data-target="#editar"

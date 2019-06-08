@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpSession;
+
 @Controller
 @RequestMapping("/usuario")
 public class UsuarioController {
@@ -22,10 +24,10 @@ public class UsuarioController {
         this.usuarioService = usuarioService;
     }
 
-    @GetMapping("/{id}")
-    public String usuarioView(@PathVariable("id") Long id, Model model ) {
-        model.addAttribute("usuario", usuarioService.findUsuarioById(id));
-        return "";
+    @GetMapping
+    public String usuarioView(HttpSession session, Model model ) {
+        model.addAttribute("usuario", usuarioService.findUsuarioById((Long) session.getAttribute("usuarioId")));
+        return "usuario-view";
     }
 
 
