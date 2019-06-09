@@ -5,9 +5,7 @@ import br.com.colibri.repositories.ProjetoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
+import javax.persistence.*;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
@@ -35,5 +33,24 @@ public class ProjetoDAO {
             projetos.add(projetoRepository.findProjetoById(s.longValue()));
         }
         return projetos;
+    }
+
+    public Boolean cadastroProjeto(Projeto projeto) {
+            StoredProcedureQuery query = entityManager.createStoredProcedureQuery("pc_cadastro_projeto")
+                    .registerStoredProcedureParameter("nome", String.class, ParameterMode.IN)
+                    .registerStoredProcedureParameter("descricao", String.class, ParameterMode.IN)
+                    .registerStoredProcedureParameter("criador", Long.class, ParameterMode.IN)
+                    .registerStoredProcedureParameter("participante_2", Long.class, ParameterMode.IN)
+                    .registerStoredProcedureParameter("participante_3", Long.class, ParameterMode.IN)
+                    .setParameter("nome", projeto.getNome())
+                    .setParameter("descricao", projeto.getDescricao())
+                    .setParameter("criador", projeto.getCriador().getId())
+                    .setParameter("participante_2", projeto.getParticipantes().get(1).getId())
+                    .setParameter("participante_3", projeto.getParticipantes().get(2).getId());
+
+            query.execute();
+
+        return true;
+
     }
 }

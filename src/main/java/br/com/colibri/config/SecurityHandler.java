@@ -37,14 +37,19 @@ public class SecurityHandler implements AuthenticationSuccessHandler {
 
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
+        System.out.println("Entrou no on Authentication Success");
         Set<String> roles = AuthorityUtils.authorityListToSet(authentication.getAuthorities());
+        System.out.println("parou auqi");
         if (roles.contains("ALUNO")) {
             String usuarioId = "";
             if (authentication.getPrincipal() instanceof Principal) {
                 usuarioId = ((Principal) authentication.getPrincipal()).getName();
+                System.out.println(usuarioId);
             } else {
                 usuarioId = ((User) authentication.getPrincipal()).getUsername();
+                System.out.println(usuarioId);
             }
+            System.out.println(usuarioId);
             Usuario userId =  usuarioRepository.findUsuarioByEmail(usuarioId);
 //            session.setAttribute("usuarioId", userId.getId());
             request.getSession().setAttribute("usuarioId",userId.getId());

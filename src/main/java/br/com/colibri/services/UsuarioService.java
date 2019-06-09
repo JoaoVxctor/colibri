@@ -1,5 +1,6 @@
 package br.com.colibri.services;
 
+import br.com.colibri.dao.UsuarioDAO;
 import br.com.colibri.models.Role;
 import br.com.colibri.models.Usuario;
 import br.com.colibri.repositories.RoleRepository;
@@ -18,13 +19,16 @@ public class UsuarioService {
     private UsuarioRepository usuarioRepository;
     private RoleRepository roleRepository;
     private BCryptPasswordEncoder passwordEncoder;
+    private UsuarioDAO usuarioDAO;
 
     @Autowired
-    public UsuarioService(UsuarioRepository usuarioRepository, RoleRepository roleRepository, BCryptPasswordEncoder passwordEncoder) {
+    public UsuarioService(UsuarioRepository usuarioRepository, RoleRepository roleRepository, BCryptPasswordEncoder passwordEncoder, UsuarioDAO usuarioDAO) {
         this.usuarioRepository = usuarioRepository;
         this.roleRepository = roleRepository;
         this.passwordEncoder = passwordEncoder;
+        this.usuarioDAO = usuarioDAO;
     }
+
     public Usuario findUsuarioByEmail(String email) {
         return usuarioRepository.findUsuarioByEmail(email);
     }
@@ -34,7 +38,8 @@ public class UsuarioService {
         Role userRole = roleRepository.findByRole("ALUNO");
         usuario.setRole(new HashSet<Role>(Arrays.asList(userRole)));
         usuario.setAtivo(true);
-        usuarioRepository.save(usuario);
+        usuarioDAO.cadastrarUsuario(usuario);
+//        usuarioRepository.save(usuario);
         request.getSession().setAttribute("usuarioId",usuario.getId());
     }
     public Usuario findUsuarioById(Long id){

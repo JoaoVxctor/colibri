@@ -41,13 +41,9 @@ public class ProjetoService {
             }
 
 
-            projetoRepository.save(projeto);
+            projetoDAO.cadastroProjeto(projeto);
             System.out.println("projeto " + projeto.getId() + " Salvo");
-        } catch (InvalidDataAccessResourceUsageException e) {
 
-            entityManager.merge(projeto);
-
-            System.out.println("projeto " + projeto.getId() + " Salvo pós-merge");
         } catch (Exception e) {
             System.out.println(e);
             System.out.println("nada deu certo");
