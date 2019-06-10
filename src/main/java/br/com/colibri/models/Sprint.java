@@ -14,8 +14,8 @@ public class Sprint {
     @OneToMany(mappedBy = "sprint")
     private Set<Tarefa> tarefas;
     private String nome;
-    private String descricao;
-
+    @ManyToOne
+    private Projeto projeto;
 
     public Long getId() {
         return id;
@@ -57,11 +57,20 @@ public class Sprint {
         this.nome = nome;
     }
 
-    public String getDescricao() {
-        return descricao;
+    public Projeto getProjeto() {
+        return projeto;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
+    public void setProjeto(Projeto projeto) {
+        this.projeto = projeto;
+    }
+
+    public Sprint(Long id, LocalDate dataInicio, LocalDate dataFim, Set<Tarefa> tarefas, String nome, Projeto projeto) {
+        this.id = id;
+        this.dataInicio = dataInicio;
+        this.dataFim = dataFim;
+        this.tarefas = tarefas;
+        this.nome = nome;
+        this.projeto = projeto;
     }
 }

@@ -3,7 +3,6 @@ package br.com.colibri.models;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.Set;
 
 import javax.persistence.*;
@@ -29,8 +28,6 @@ public class Usuario {
 	@NotNull(message = "O campo data de nascimento não pode ser nulo")
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate datanasc;
-	@Enumerated(EnumType.STRING)
-	private Genero genero;
 	@ManyToMany
 	private Set<Role> role;
 
@@ -42,7 +39,6 @@ public class Usuario {
 				", email='" + email + '\'' +
 				", senha='" + senha + '\'' +
 				", datanasc=" + datanasc +
-				", genero=" + genero +
 				", role=" + role +
 				", ativo=" + ativo +
 				'}';
@@ -51,16 +47,15 @@ public class Usuario {
 	private Boolean ativo;
 
 	public Usuario(Long id, @NotNull @Size(min = 4, max = 50) String nome,
-			@Size(min = 1, message = "O campo e-mail não pode ser nulo ou vazio") @Email String email,
-			@NotEmpty(message = "O campo senha não pode ser nulo") String senha,
-			@NotNull(message = "O campo data de nascimento não pode ser nulo") LocalDate datanasc, Genero genero,
-			Set<Role> role, Boolean ativo) {
+				   @Size(min = 1, message = "O campo e-mail não pode ser nulo ou vazio") @Email String email,
+				   @NotEmpty(message = "O campo senha não pode ser nulo") String senha,
+				   @NotNull(message = "O campo data de nascimento não pode ser nulo") LocalDate datanasc,
+				   Set<Role> role, Boolean ativo) {
 		this.id = id;
 		this.nome = nome;
 		this.email = email;
 		this.senha = senha;
 		this.datanasc = datanasc;
-		this.genero = genero;
 		this.role = role;
 
 		this.ativo = ativo;
@@ -112,14 +107,6 @@ public class Usuario {
 
 	public void setDatanasc(LocalDate datanasc) {
 		this.datanasc = datanasc;
-	}
-
-	public Genero getGenero() {
-		return genero;
-	}
-
-	public void setGenero(Genero genero) {
-		this.genero = genero;
 	}
 
 	public Set<Role> getRole() {

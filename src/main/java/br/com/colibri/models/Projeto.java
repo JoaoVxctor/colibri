@@ -21,7 +21,7 @@ public class Projeto {
 	private List<Usuario> participantes;
 	@ManyToMany
 	private List<Avaliacao> avaliacao;
-	@ManyToMany
+	@OneToMany(fetch = FetchType.EAGER)
 	private List<Sprint> sprint;
 
 	public Boolean getFinalizado() {

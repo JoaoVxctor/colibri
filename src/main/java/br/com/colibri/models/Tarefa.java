@@ -17,8 +17,14 @@ public class Tarefa {
     @ManyToOne
     private Sprint sprint;
     private String descricao;
-    private LocalDate dataInicio;
     private LocalDate dataFim;
+
+    public Tarefa(Long id, Sprint sprint, String descricao, LocalDate dataFim) {
+        Id = id;
+        this.sprint = sprint;
+        this.descricao = descricao;
+        this.dataFim = dataFim;
+    }
 
     public Tarefa() {
     }
@@ -37,14 +43,6 @@ public class Tarefa {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
-    }
-
-    public LocalDate getDataInicio() {
-        return dataInicio;
-    }
-
-    public void setDataInicio(LocalDate dataInicio) {
-        this.dataInicio = dataInicio;
     }
 
     public LocalDate getDataFim() {
