@@ -26,4 +26,14 @@ public class SprintDAO {
 
         query.execute();
     }
+    public void deleteSprint(Sprint sprint){
+        StoredProcedureQuery query = entityManager.createStoredProcedureQuery("pc_delete_sprint")
+                .registerStoredProcedureParameter("sprint", Long.class, ParameterMode.IN)
+                .registerStoredProcedureParameter("projeto", Long.class, ParameterMode.IN)
+
+                .setParameter("projeto", sprint.getProjeto().getId())
+                .setParameter("sprint", sprint.getId());
+
+        query.execute();
+    }
 }
