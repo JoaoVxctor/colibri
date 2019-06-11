@@ -1,5 +1,7 @@
 package br.com.colibri.models;
 
+import org.springframework.data.repository.cdi.Eager;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Set;
@@ -11,7 +13,7 @@ public class Sprint {
 	private Long id;
     private LocalDate dataInicio;
     private LocalDate dataFim;
-    @OneToMany(mappedBy = "sprint")
+    @OneToMany(mappedBy = "sprint",fetch = FetchType.EAGER)
     private Set<Tarefa> tarefas;
     private String nome;
     @ManyToOne

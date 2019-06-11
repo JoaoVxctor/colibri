@@ -17,16 +17,14 @@ public class Tarefa {
     @ManyToOne
     private Sprint sprint;
     private String descricao;
-    private LocalDate dataFim;
+    private Boolean finalizado;
 
-    public Tarefa(Long id, Sprint sprint, String descricao, LocalDate dataFim) {
-        Id = id;
-        this.sprint = sprint;
-        this.descricao = descricao;
-        this.dataFim = dataFim;
+    public Long getId() {
+        return Id;
     }
 
-    public Tarefa() {
+    public void setId(Long id) {
+        Id = id;
     }
 
     public Sprint getSprint() {
@@ -45,22 +43,18 @@ public class Tarefa {
         this.descricao = descricao;
     }
 
-    public LocalDate getDataFim() {
-        return dataFim;
+    public Boolean getFinalizado() {
+        return finalizado;
     }
 
-    public void setDataFim(LocalDate dataFim) {
-        this.dataFim = dataFim;
+    public void setFinalizado(Boolean finalizado) {
+        this.finalizado = finalizado;
     }
 
-    public Long getId() {
-        return Id;
-    }
-
-    public void setId(Long id) {
+    public Tarefa(Long id, Sprint sprint, String descricao, Boolean finalizado) {
         Id = id;
+        this.sprint = sprint;
+        this.descricao = descricao;
+        this.finalizado = finalizado;
     }
-
-
-
 }
