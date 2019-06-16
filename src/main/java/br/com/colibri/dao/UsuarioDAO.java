@@ -35,4 +35,19 @@ public class UsuarioDAO  {
                 .setParameter("datanasc",usuario.getDatanasc());
         query.execute();
     }
+
+    public void updateUsuario(Usuario usuario){
+        StoredProcedureQuery query = entityManager.createStoredProcedureQuery("pc_update_usuario")
+                .registerStoredProcedureParameter("nome",String.class, ParameterMode.IN)
+                .registerStoredProcedureParameter("email",String.class, ParameterMode.IN)
+                .registerStoredProcedureParameter("senha",String.class, ParameterMode.IN)
+                .registerStoredProcedureParameter("datanasc", LocalDate.class, ParameterMode.IN)
+                .registerStoredProcedureParameter("id", Long.class, ParameterMode.IN)
+                .setParameter("nome",usuario.getNome())
+                .setParameter("email",usuario.getEmail())
+                .setParameter("senha",usuario.getSenha())
+                .setParameter("datanasc",usuario.getDatanasc())
+                .setParameter("id",usuario.getId());
+        query.execute();
+    }
 }

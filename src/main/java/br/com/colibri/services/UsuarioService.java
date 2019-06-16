@@ -46,7 +46,17 @@ public class UsuarioService {
         return usuarioRepository.findUsuarioById(id);
     }
 
+    public boolean updateUsuario(Usuario usuario){
+        try{
+            usuario.setSenha(passwordEncoder.encode(usuario.getSenha()));
+            usuarioDAO.updateUsuario(usuario);
 
+        }catch(Exception e){
+            System.out.println(e);
+            return false;
+        }
+        return true;
+    }
 
 
     public UsuarioService() {

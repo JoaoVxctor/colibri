@@ -86,7 +86,7 @@ public class ProjetoController {
         List<Projeto> projetos = projetoService.findProjetoByParticipante((Long) session.getAttribute("usuarioId"), 1000);
         Collections.reverse(projetos);
         model.addAttribute("projetos", projetos);
-
+        model.addAttribute("msg", redirectAttributes.getFlashAttributes());
         return "all-projeto";
     }
 
