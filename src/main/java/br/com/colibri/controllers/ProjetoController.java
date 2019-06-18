@@ -3,6 +3,8 @@ package br.com.colibri.controllers;
 import br.com.colibri.models.Projeto;
 import br.com.colibri.models.Usuario;
 import br.com.colibri.services.ProjetoService;
+import br.com.colibri.services.SprintService;
+import br.com.colibri.services.TarefaService;
 import br.com.colibri.services.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,11 +27,15 @@ import java.util.List;
 public class ProjetoController {
     private ProjetoService projetoService;
     private UsuarioService usuarioService;
+    private SprintService sprintService;
+    private TarefaService tarefaService;
 
     @Autowired
-    public ProjetoController(ProjetoService projetoService, UsuarioService usuarioService) {
+    public ProjetoController(ProjetoService projetoService, UsuarioService usuarioService, SprintService sprintService, TarefaService tarefaService) {
         this.projetoService = projetoService;
         this.usuarioService = usuarioService;
+        this.sprintService = sprintService;
+        this.tarefaService = tarefaService;
     }
 
     @PostMapping("/novo")
@@ -75,9 +81,11 @@ public class ProjetoController {
     }
 
     @GetMapping("/{id}")
-    public String projetoView(@PathVariable("id") Long id, Model model ){
+    public String projetoView(@PathVariable("id") Long id, Model model , HttpSession session){
         Projeto projeto = projetoService.findProjetoById(id);
         model.addAttribute("projeto",projeto);
+        model.addAttribute("usuario", usuarioService.findUsuarioById((Long) session.getAttribute("usuarioId")));
+//        model.addAttribute("sprints", )
         return "projeto-view";
     }
 
@@ -87,6 +95,7 @@ public class ProjetoController {
         Collections.reverse(projetos);
         model.addAttribute("projetos", projetos);
         model.addAttribute("msg", redirectAttributes.getFlashAttributes());
+        model.addAttribute("usuario", usuarioService.findUsuarioById((Long) session.getAttribute("usuarioId")));
         return "all-projeto";
     }
 

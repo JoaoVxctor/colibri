@@ -32,121 +32,7 @@
             </a>
         </div>
         <div class="navbar-menu-wrapper d-flex align-items-center">
-
             <ul class="navbar-nav navbar-nav-right">
-                <li class="nav-item dropdown">
-                    <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#"
-                       data-toggle="dropdown" aria-expanded="false">
-                        <i class="mdi mdi-file-document-box"></i>
-                        <span class="count">2</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
-                         aria-labelledby="messageDropdown">
-                        <div class="dropdown-item">
-                            <p class="mb-0 font-weight-normal float-left">Você tem 2 mensagens não lidas
-                            </p>
-                            <span class="badge badge-info badge-pill float-right">Ver todas</span>
-                        </div>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item preview-item">
-                            <div class="preview-thumbnail">
-                                <img src="images/faces/face4.jpg" alt="image" class="profile-pic">
-                            </div>
-                            <div class="preview-item-content flex-grow">
-                                <h6 class="preview-subject ellipsis font-weight-medium text-dark">João Victor
-                                    <span class="float-right font-weight-light small-text">1 Minuto atrás</span>
-                                </h6>
-                                <span class="font-weight-light small-text" th:text="${mensagem}"></span>
-
-                            </div>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item preview-item">
-                            <div class="preview-thumbnail">
-                                <img src="images/faces/face2.jpg" alt="image" class="profile-pic">
-                            </div>
-                            <div class="preview-item-content flex-grow">
-                                <h6 class="preview-subject ellipsis font-weight-medium text-dark">João Victor
-                                    <span class="float-right font-weight-light small-text">15 Minuto atrás</span>
-                                </h6>
-                                <p class="font-weight-light small-text">
-                                    Saudades
-                                </p>
-                            </div>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item preview-item">
-                            <div class="preview-thumbnail">
-                                <img src="images/faces/face3.jpg" alt="image" class="profile-pic">
-                            </div>
-                            <div class="preview-item-content flex-grow">
-                                <h6 class="preview-subject ellipsis font-weight-medium text-dark">Ana Chebel
-                                    <span class="float-right font-weight-light small-text">18 Minuto atrás</span>
-                                </h6>
-                                <p class="font-weight-light small-text">
-                                    Quero dormir com você
-                                </p>
-                            </div>
-                        </a>
-                    </div>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#"
-                       data-toggle="dropdown">
-                        <i class="mdi mdi-bell"></i>
-                        <span class="count">4</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
-                         aria-labelledby="notificationDropdown">
-                        <a class="dropdown-item">
-                            <p class="mb-0 font-weight-normal float-left">Você tem 4 novas notificações
-                            </p>
-                            <span class="badge badge-pill badge-warning float-right">Ver todas</span>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item preview-item">
-                            <div class="preview-thumbnail">
-                                <div class="preview-icon bg-success">
-                                    <i class="mdi mdi-alert-circle-outline mx-0"></i>
-                                </div>
-                            </div>
-                            <div class="preview-item-content">
-                                <h6 class="preview-subject font-weight-medium text-dark">Erro</h6>
-                                <p class="font-weight-light small-text">
-                                    404
-                                </p>
-                            </div>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item preview-item">
-                            <div class="preview-thumbnail">
-                                <div class="preview-icon bg-warning">
-                                    <i class="mdi mdi-comment-text-outline mx-0"></i>
-                                </div>
-                            </div>
-                            <div class="preview-item-content">
-                                <h6 class="preview-subject font-weight-medium text-dark">problema</h6>
-                                <p class="font-weight-light small-text">
-                                    fodeu
-                                </p>
-                            </div>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item preview-item">
-                            <div class="preview-thumbnail">
-                                <div class="preview-icon bg-info">
-                                    <i class="mdi mdi-email-outline mx-0"></i>
-                                </div>
-                            </div>
-                            <div class="preview-item-content">
-                                <h6 class="preview-subject font-weight-medium text-dark">Parabens</h6>
-                                <p class="font-weight-light small-text">
-                                    Valeu
-                                </p>
-                            </div>
-                        </a>
-                    </div>
-                </li>
                 <li class="nav-item dropdown d-none d-xl-inline-block">
                     <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
                         <span class="profile-text" th:text="${usuario.nome}"></span>
@@ -216,9 +102,9 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="pages/tables/basic-table.html">
+                    <a class="nav-link" th:href="@{/projeto}">
                         <i class="menu-icon mdi mdi-table"></i>
-                        <span class="menu-title">Teste</span>
+                        <span class="menu-title">Todos os projetos</span>
                     </a>
 
 
@@ -353,7 +239,7 @@
                                                 Data Inicial
                                             </th>
                                             <th>
-                                                Date Limite
+
                                             </th>
                                         </tr>
                                         </thead>
@@ -389,18 +275,6 @@
                                                     <div class="dropdown-menu" tabindex="3">
                                                         <a class="dropdown-item" th:href="@{'/projeto/'+${projeto.id}}" >
                                                             <i class="fa fa-reply fa-fw"></i>Visualizar</a>
-                                                        <a class="dropdown-item" >
-                                                            <a class="dropdown-item" data-target="#editar"
-                                                               data-toggle="modal" href="#response">Editar</a>
-                                                            <div class="dropdown-divider"></div>
-                                                            <a class="dropdown-item" data-target="#response"
-                                                               data-toggle="modal" href="#response">Adicionar
-                                                                Sprint</a>
-                                                            <a class="dropdown-item" href="#">
-                                                                <a class="dropdown-item" data-target="#response2"
-                                                                   data-toggle="modal" href="#response">Adicionar
-                                                                    Tarefa</a>
-
                                                     </div>
                                                 </div>
                                             </td>
@@ -435,7 +309,6 @@
                                             <input type="text" class="form-control" id="membro-2" name="membro-2"  th:field ="*{participantes[2].email}"
                                                    placeholder="ex: marcio@marcio.com"/>
                                         </div>
-
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal" action="/">
@@ -494,168 +367,6 @@
                                 </div>
                             </div>
                         </form>
-                    </div>
-
-
-
-                </div>
-
-
-                <div class="row">
-                    <div class="col-12 grid-margin">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title mb-4">Projetos para avaliar</h5>
-                                <div class="fluid-container">
-                                    <div class="row ticket-card mt-3 pb-2 border-bottom pb-3 mb-3">
-                                        <div class="col-md-1">
-                                            <img class="img-sm rounded-circle mb-4 mb-md-0" src="images/faces/face1.jpg"
-                                                 alt="profile image">
-                                        </div>
-                                        <div class="ticket-details col-md-9">
-                                            <div class="d-flex">
-                                                <p class="text-dark font-weight-semibold mr-2 mb-0 no-wrap">Beluzo:</p>
-                                                <p class="text-primary mr-1 mb-0">[#111]</p>
-                                                <p class="mb-0 ellipsis">All the Books</p>
-                                            </div>
-                                            <p class="text-gray ellipsis mb-2">Donec rutrum congue leo eget malesuada.
-                                                Quisque velit nisi, pretium ut lacinia in, elementum id enim
-                                                vivamus.
-                                            </p>
-                                            <div class="row text-gray d-md-flex d-none">
-                                                <div class="col-4 d-flex">
-                                                    <small class="mb-0 mr-2 text-muted text-muted">Last responded :
-                                                    </small>
-                                                    <small class="Last-responded mr-2 mb-0 text-muted text-muted">3
-                                                        hours ago
-                                                    </small>
-                                                </div>
-                                                <div class="col-4 d-flex">
-                                                    <small class="mb-0 mr-2 text-muted text-muted">Due in :</small>
-                                                    <small class="Last-responded mr-2 mb-0 text-muted text-muted">2
-                                                        Days
-                                                    </small>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="ticket-actions col-md-2">
-                                            <div class="btn-group dropdown">
-                                                <button type="button" class="btn btn-success dropdown-toggle btn-sm"
-                                                        data-toggle="dropdown" aria-haspopup="true"
-                                                        aria-expanded="false">
-                                                    Gerenciar
-                                                </button>
-                                                <div class="dropdown-menu">
-                                                    <a class="dropdown-item" href="#">
-                                                        <i class="fa fa-reply fa-fw"></i>Comentar</a>
-                                                    <a class="dropdown-item" href="#">
-                                                        <i class="fa fa-history fa-fw"></i>Ver o projeto</a>
-                                                    <div class="dropdown-divider"></div>
-                                                    <a class="dropdown-item" href="#">
-                                                        <i class="fa fa-check text-success fa-fw"></i>Nota</a>
-                                                    <a class="dropdown-item" href="#">
-                                                        <i class="fa fa-times text-danger fa-fw"></i>Excluir</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row ticket-card mt-3 pb-2 border-bottom pb-3 mb-3">
-                                        <div class="col-md-1">
-                                            <img class="img-sm rounded-circle mb-4 mb-md-0" src="images/faces/face2.jpg"
-                                                 alt="profile image">
-                                        </div>
-                                        <div class="ticket-details col-md-9">
-                                            <div class="d-flex">
-                                                <p class="text-dark font-weight-semibold mr-2 mb-0 no-wrap">Everton:</p>
-                                                <p class="text-primary mr-1 mb-0">[#222]</p>
-                                                <p class="mb-0 ellipsis">Simulador de Investimentos</p>
-                                            </div>
-                                            <p class="text-gray ellipsis mb-2">Pellentesque in ipsum id orci porta
-                                                dapibus. Sed porttitor lectus nibh. Curabitur non nulla sit amet
-                                                nisl.
-                                            </p>
-                                            <div class="row text-gray d-md-flex d-none">
-                                                <div class="col-4 d-flex">
-                                                    <small class="mb-0 mr-2 text-muted">Last responded :</small>
-                                                    <small class="Last-responded mr-2 mb-0 text-muted">3 hours ago
-                                                    </small>
-                                                </div>
-                                                <div class="col-4 d-flex">
-                                                    <small class="mb-0 mr-2 text-muted">Due in :</small>
-                                                    <small class="Last-responded mr-2 mb-0 text-muted">2 Days</small>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="ticket-actions col-md-2">
-                                            <div class="btn-group dropdown">
-                                                <button type="button" class="btn btn-success dropdown-toggle btn-sm"
-                                                        data-toggle="dropdown" aria-haspopup="true"
-                                                        aria-expanded="false">
-                                                    Gerenciar
-                                                </button>
-                                                <div class="dropdown-menu">
-                                                    <a class="dropdown-item" href="#">
-                                                        <i class="fa fa-reply fa-fw"></i>Comentar</a>
-                                                    <a class="dropdown-item" href="#">
-                                                        <i class="fa fa-history fa-fw"></i>Ver o projeto</a>
-                                                    <div class="dropdown-divider"></div>
-                                                    <a class="dropdown-item" href="#">
-                                                        <i class="fa fa-check text-success fa-fw"></i>Nota</a>
-                                                    <a class="dropdown-item" href="#">
-                                                        <i class="fa fa-times text-danger fa-fw"></i>Excluir</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row ticket-card mt-3">
-                                        <div class="col-md-1">
-                                            <img class="img-sm rounded-circle mb-4 mb-md-0" src="images/faces/face3.jpg"
-                                                 alt="profile image">
-                                        </div>
-                                        <div class="ticket-details col-md-9">
-                                            <div class="d-flex">
-                                                <p class="text-dark font-weight-semibold mr-2 mb-0 no-wrap">Sovat:</p>
-                                                <p class="text-primary mr-1 mb-0">[#333]</p>
-                                                <p class="mb-0 ellipsis">Treinador de Basquete</p>
-                                            </div>
-                                            <p class="text-gray ellipsis mb-2">Nulla quis lorem ut libero malesuada
-                                                feugiat. Proin eget tortor risus. Lorem ipsum dolor sit amet.</p>
-                                            <div class="row text-gray d-md-flex d-none">
-                                                <div class="col-4 d-flex">
-                                                    <small class="mb-0 mr-2 text-muted">Last responded :</small>
-                                                    <small class="Last-responded mr-2 mb-0 text-muted">3 hours ago
-                                                    </small>
-                                                </div>
-                                                <div class="col-4 d-flex">
-                                                    <small class="mb-0 mr-2 text-muted">Due in :</small>
-                                                    <small class="Last-responded mr-2 mb-0 text-muted">2 Days</small>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="ticket-actions col-md-2">
-                                            <div class="btn-group dropdown">
-                                                <button type="button" class="btn btn-success dropdown-toggle btn-sm"
-                                                        data-toggle="dropdown" aria-haspopup="true"
-                                                        aria-expanded="false">
-                                                    Gerenciar
-                                                </button>
-                                                <div class="dropdown-menu">
-                                                    <a class="dropdown-item" href="#">
-                                                        <i class="fa fa-reply fa-fw"></i>Comentar</a>
-                                                    <a class="dropdown-item" href="#">
-                                                        <i class="fa fa-history fa-fw"></i>Ver o projeto</a>
-                                                    <div class="dropdown-divider"></div>
-                                                    <a class="dropdown-item" href="#">
-                                                        <i class="fa fa-check text-success fa-fw"></i>Nota</a>
-                                                    <a class="dropdown-item" href="#">
-                                                        <i class="fa fa-times text-danger fa-fw"></i>Excluir</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>

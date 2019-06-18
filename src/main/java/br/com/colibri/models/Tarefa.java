@@ -57,4 +57,8 @@ public class Tarefa {
         this.descricao = descricao;
         this.finalizado = finalizado;
     }
+
+    public Tarefa() {
+    }
+
 }

@@ -34,124 +34,10 @@
         </div>
         <div class="navbar-menu-wrapper d-flex align-items-center">
             <ul class="navbar-nav navbar-nav-right">
-                <li class="nav-item dropdown">
-                    <a aria-expanded="false" class="nav-link count-indicator dropdown-toggle" data-toggle="dropdown"
-                       href="#" id="messageDropdown">
-                        <i class="mdi mdi-file-document-box"></i>
-                        <!--<span class="count">7</span>-->
-                    </a>
-                    <div aria-labelledby="messageDropdown"
-                         class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list">
-                        <div class="dropdown-item">
-                            <p class="mb-0 font-weight-normal float-left">You have 7 unread mails
-                            </p>
-                            <span class="badge badge-info badge-pill float-right">View all</span>
-                        </div>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item preview-item">
-                            <div class="preview-thumbnail">
-                                <img alt="image" class="profile-pic" src="../../images/faces/face4.jpg">
-                            </div>
-                            <div class="preview-item-content flex-grow">
-                                <h6 class="preview-subject ellipsis font-weight-medium text-dark">David Grey
-                                    <span class="float-right font-weight-light small-text">1 Minutes ago</span>
-                                </h6>
-                                <p class="font-weight-light small-text">
-                                    The meeting is cancelled
-                                </p>
-                            </div>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item preview-item">
-                            <div class="preview-thumbnail">
-                                <img alt="image" class="profile-pic" src="../../images/faces/face2.jpg">
-                            </div>
-                            <div class="preview-item-content flex-grow">
-                                <h6 class="preview-subject ellipsis font-weight-medium text-dark">Tim Cook
-                                    <span class="float-right font-weight-light small-text">15 Minutes ago</span>
-                                </h6>
-                                <p class="font-weight-light small-text">
-                                    New product launch
-                                </p>
-                            </div>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item preview-item">
-                            <div class="preview-thumbnail">
-                                <img alt="image" class="profile-pic" src="../../images/faces/face3.jpg">
-                            </div>
-                            <div class="preview-item-content flex-grow">
-                                <h6 class="preview-subject ellipsis font-weight-medium text-dark"> Johnson
-                                    <span class="float-right font-weight-light small-text">18 Minutes ago</span>
-                                </h6>
-                                <p class="font-weight-light small-text">
-                                    Upcoming board meeting
-                                </p>
-                            </div>
-                        </a>
-                    </div>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link count-indicator dropdown-toggle" data-toggle="dropdown" href="#"
-                       id="notificationDropdown">
-                        <i class="mdi mdi-bell"></i>
-                        <!--<span class="count">4</span>-->
-                    </a>
-                    <div aria-labelledby="notificationDropdown"
-                         class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list">
-                        <a class="dropdown-item">
-                            <p class="mb-0 font-weight-normal float-left">You have 4 new notifications
-                            </p>
-                            <span class="badge badge-pill badge-warning float-right">View all</span>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item preview-item">
-                            <div class="preview-thumbnail">
-                                <div class="preview-icon bg-success">
-                                    <i class="mdi mdi-alert-circle-outline mx-0"></i>
-                                </div>
-                            </div>
-                            <div class="preview-item-content">
-                                <h6 class="preview-subject font-weight-medium text-dark">Application Error</h6>
-                                <p class="font-weight-light small-text">
-                                    Just now
-                                </p>
-                            </div>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item preview-item">
-                            <div class="preview-thumbnail">
-                                <div class="preview-icon bg-warning">
-                                    <i class="mdi mdi-comment-text-outline mx-0"></i>
-                                </div>
-                            </div>
-                            <div class="preview-item-content">
-                                <h6 class="preview-subject font-weight-medium text-dark">Settings</h6>
-                                <p class="font-weight-light small-text">
-                                    Private message
-                                </p>
-                            </div>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item preview-item">
-                            <div class="preview-thumbnail">
-                                <div class="preview-icon bg-info">
-                                    <i class="mdi mdi-email-outline mx-0"></i>
-                                </div>
-                            </div>
-                            <div class="preview-item-content">
-                                <h6 class="preview-subject font-weight-medium text-dark">New user registration</h6>
-                                <p class="font-weight-light small-text">
-                                    2 days ago
-                                </p>
-                            </div>
-                        </a>
-                    </div>
-                </li>
                 <li class="nav-item dropdown d-none d-xl-inline-block">
                     <a aria-expanded="false" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
                        id="UserDropdown">
-                        <span class="profile-text">Ola, Marcio Brognoni !</span>
+                        <span class="profile-text" th:text="${usuario.nome}"></span>
                         <img alt="Profile image" class="img-xs rounded-circle" src="../../images/faces/face1.jpg">
                     </a>
                     <div aria-labelledby="UserDropdown" class="dropdown-menu dropdown-menu-right navbar-dropdown">
@@ -198,14 +84,14 @@
                                 <img alt="profile image" src="../../images/faces/face1.jpg">
                             </div>
                             <div class="text-wrapper">
-                                <p class="profile-name">Marcio Brognoni</p>
+                                <span class="profile-text" th:text="${usuario.nome}"></span>
                                 <div>
-                                    <small class="designation text-muted">Manager</small>
+                                    <small class="designation text-muted">Aluno</small>
                                     <span class="status-indicator online"></span>
                                 </div>
                             </div>
                         </div>
-                        <button class="btn btn-success btn-block" data-target="#cadastro-projeto" data-toggle="modal">
+                        <button class="btn btn-success btn-block" data-target="#addsprint" data-toggle="modal">
                             Novo Projeto
                             <i class="mdi mdi-plus"></i>
                         </button>
@@ -229,64 +115,73 @@
                                 <h3 class=" text-center" th:text="${projeto.nome}"></h3>
                             </div>
                             <div class="card-body">
-                                <form class="form-sample">
-                                    <td>
-                                        <label class="col-sm-3 col-form-label  border-bottom rounded">Integrantes</label>
-                                    </td>
-                                    <div class="row py-3">
-                                        <div class="col-md-6">
-                                            <div class="form-group row"
-                                                 th:each="participante : ${projeto.participantes}">
-                                                <div class="col-sm-9">
-                                                    <label class="col-sm-5 col-form-label  border-bottom rounded"
-                                                           th:text="${participante.nome}"></label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group row">
-                                                        <label class="col-sm-3 col-form-label">Nota</label>
-                                                        <div class="col-sm-9">
-                                                            <center><span class="btn btn-primary"
-                                                                          th:text="${projeto.nota}"></span></center>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <div class="form-group row">
-                                                    <label class="col-sm-3 col-form-label text-left">Documento</label>
-                                                    <div class="col-sm-9">
-                                                        <div class="input-group col-xs-12=">
-                                                            <div class="custom-file">
-                                                                <input class="custom-file-input" id="customFileLang"
-                                                                       lang="pt" type="file">
-                                                                <label class="custom-file-label" for="customFileLang">Selecionar
-                                                                    Arquivo</label>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label class="col-sm-3 col-form-label">Inicio do Projeto</label>
-                                                <div class="col-sm-9">
-                                                    <label class="col-sm-5 col-form-label  border-bottom rounded"
-                                                           th:text="${{projeto.dataCriacao}}"></label>
+                                <td>
+                                    <label class="col-sm-3 col-form-label  border-bottom rounded">Descrição</label>
+                                </td>
 
-                                                </div>
+                                <div class="col-md-24">
+                                    <label class="col-sm-5 col-form-label  border-bottom rounded"
+                                           th:text="${projeto.descricao}"></label>
+                                </div>
+
+                                <br>
+                                <td>
+                                    <label class="col-sm-3 col-form-label  border-bottom rounded">Integrantes</label>
+                                </td>
+                                <div class="row py-3">
+                                    <div class="col-md-6">
+                                        <div class="form-group row"
+                                             th:each="participante : ${projeto.participantes}">
+                                            <div class="col-sm-9">
+                                                <label class="col-sm-5 col-form-label  border-bottom rounded"
+                                                       th:text="${participante.nome}"></label>
                                             </div>
                                         </div>
                                     </div>
-                                </form>
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group row">
+                                                    <label class="col-sm-3 col-form-label">Nota</label>
+                                                    <div class="col-sm-9">
+                                                        <center><span class="btn btn-primary"
+                                                                      th:text="${projeto.nota}"></span></center>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Inicio do Projeto</label>
+                                            <div class="col-sm-9">
+                                                <label class="col-sm-5 col-form-label  border-bottom rounded"
+                                                       th:text="${{projeto.dataCriacao}}"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row py-1">
+                                    <div class="col-md-6"></div>
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <button class="btn btn-success col-sm-5" data-target="#addsprint"
+                                                        data-toggle="modal" href="#addtarefa">Adicionar Sprint
+                                                </button>
+                                                <button class="btn btn-success col-sm-5" data-target="#addtarefa"
+                                                        data-toggle="modal" href="#addtarefa">Adicionar Tarefa
+                                                </button>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <button class="btn btn-danger">Finalizar Projeto</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group row">
-
                                             <div class="col-sm-9">
-
                                             </div>
                                         </div>
                                     </div>
@@ -295,60 +190,22 @@
                         </div>
                     </div>
                 </div>
-
-
-                <div class="row-12 col-12 container bg-white">
+                <div class="row-12 col-12 container bg-white" th:each="sprint : ${projeto.sprint}">
                     <center><br>
-                        <h3>SPRINT TESTE</h3></center>
-
-
+                        <h3 th:text="${sprint.nome}"></h3></center>
                     <br>
-                    <div class = "card-columns">
-                        <div class="card text-white  mb-3 mx-2">
-                            <div class="card-body text-black bg-light">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">This is a wider card with supporting text below as a natural
-                                    lead-in to additional content. This content is a little bit longer.</p>
+                    <div class="card-deck">
+                        <div class="card text-white  mb-3 mx-2" th:each="tarefa : ${sprint.tarefas}">
+                            <div class="card-body text-black bg-secondary">
+                                <h5 class="card-title" th:text="${tarefa.descricao}"></h5>
+                                <p class="card-text" th:text="${tarefa.finalizado} == false ?  ('Em andamento') : ('Concluido')"></p>
                                 <p class="card-text">
-                                    <small class="text-muted">Last updated 3 mins ago</small>
+                                    <button class="btn btn-dark btn-sm align=center">Finalizar Tarefa</button>
+                                    <small class="text-muted"></small>
                                 </p>
                             </div>
                         </div>
-                        <div class="card text-white bg-danger mb-3 mx-2">
-                            <center>
-                                <div class="label text-black mb-5">TO do</div>
-                            </center>
-
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">This is a wider card with supporting text below as a natural
-                                    lead-in to additional content. This content is a little bit longer.</p>
-                                <p class="card-text">
-                                    <small class="text-muted">Last updated 3 mins ago</small>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="card text-white bg-warning mb-3 mx-2">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">This is a wider card with supporting text below as a natural
-                                    lead-in to additional content. This content is a little bit longer.</p>
-                                <p class="card-text">
-                                    <small class="text-muted">Last updated 3 mins ago</small>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="card text-white bg-success mb-3 mx-2">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">This is a wider card with supporting text below as a natural
-                                    lead-in to additional content. This content is a little bit longer.</p>
-                                <p class="card-text">
-                                    <small class="text-muted">Last updated 3 mins ago</small>
-                                </p>
-                            </div>
-                        </div>
-                </div>
+                    </div>
                 </div>
 
                 <div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade" id="cadastro-projeto"
@@ -370,7 +227,7 @@
                                                type="text">
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-form-label" for="message-text">Membr o 1:</label>
+                                        <label class="col-form-label" for="message-text">Membro 1:</label>
                                         <input class="form-control" id="recipient-name"
                                                placeholder="ex: matheus@matheus.com"
                                                type="text">
@@ -396,7 +253,88 @@
                         </div>
                     </div>
                 </div>
-                <br>
+
+                <div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade" id="addsprint"
+                     role="dialog" tabindex="-1">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="abc">Adicionar Sprint</h5>
+                                <button aria-label="Fechar" class="close" data-dismiss="modal" type="button">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <div class="form-group">
+                                        <label class="col-form-label" for="recipient-name">Nome do Sprint:</label>
+                                        <input class="form-control" id="recipient-name"
+                                               placeholder="ex: Iniciativa Colibri"
+                                               type="text">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label" for="message-text">Data de inicio do
+                                            Sprint:</label>
+                                        <input class="form-control" id="recipient-name" type="date">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label" for="message-text">Data de finalização do
+                                            Sprint:</label>
+                                        <input class="form-control" id="recipient-name" type="date">
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-secondary" data-dismiss="modal" type="button">Fechar</button>
+                                <button class="btn btn-primary" type="button">Enviar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade" id="addtarefa"
+                     role="dialog"
+                     tabindex="-1">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Adicionar Tarefa</h5>
+                                <button aria-label="Fechar" class="close" data-dismiss="modal" type="button">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <div class="form-group">
+                                        <label class="col-form-label" for="recipient-name">Nome da Tarefa:</label>
+                                        <input class="form-control" id="recipient-name"
+                                               placeholder="ex: Iniciativa Colibri"
+                                               type="text">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label" for="message-text">Sprint da Tarefa:</label>
+                                        <select class="form-control" name="sprints">
+                                            <option value="spt1">Sprint 1</option>
+                                            <option value="spt1">Sprint 2</option>
+                                            <option value="spt1">Sprint 3</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label" for="message-text">Descrição da Tarefa:</label>
+                                        <textarea class="form-control" placeholder="ex: Nesta Task será feito..."
+                                                  rows="10"></textarea>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-secondary" data-dismiss="modal" type="button">Fechar</button>
+                                <button class="btn btn-primary" type="button">Salvar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+<br>
                 <nav aria-label="Page navigation example">
                     <ul class="pagination justify-content-center">
                         <li class="page-item disabled">

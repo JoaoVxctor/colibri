@@ -75,4 +75,7 @@ public class Sprint {
         this.nome = nome;
         this.projeto = projeto;
     }
+
+    public Sprint() {
+    }
 }
